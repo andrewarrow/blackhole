@@ -7,6 +7,8 @@ import (
 	"time"
 )
 
+var evenOdd bool
+var cacheTimes []int
 var lock *sync.Mutex
 
 type Tron struct {
@@ -19,19 +21,26 @@ func MakeTron(name string) *Tron {
 	return &t
 }
 
-func (t *Tron) Ping(from3D *ThreeD) {
+func (t *Tron) Ping(from3D *ThreeD) []int {
+	list := []int{}
 	if t.Name == "zero" {
 		fmt.Printf("The SHARED ZERO hit by %s\n", from3D.Name)
+		list = cacheTimes
+		if evenOdd == false {
+			cacheTimes = MakeTimes()
+			list = cacheTimes
+		}
+		evenOdd = !evenOdd
 	} else {
 		fmt.Printf("%s is at position %s\n", from3D.Name, t.Name)
 	}
+	return list
 }
 
 type ThreeD struct {
 	Zero  *Tron
 	Name  string
 	Trons []*Tron
-	Times []int
 }
 
 func MakeThreeD(zero *Tron, name string) *ThreeD {
@@ -49,23 +58,24 @@ func MakeThreeD(zero *Tron, name string) *ThreeD {
 	return &td
 }
 
-func (td *ThreeD) PickTimes() {
-	td.Times = []int{}
-	td.Times = append(td.Times, rand.Intn(500))
-	td.Times = append(td.Times, rand.Intn(500))
-	td.Times = append(td.Times, rand.Intn(500))
+func MakeTimes() []int {
+	T := []int{}
+	T = append(T, rand.Intn(500))
+	T = append(T, rand.Intn(500))
+	T = append(T, rand.Intn(500))
+	return T
 }
 
 func (td *ThreeD) Start() {
 	for {
 		lock.Lock()
-		td.Zero.Ping(td)
-		lock.Unlock()
-		td.PickTimes()
+		times := td.Zero.Ping(td)
 		for i, tron := range td.Trons {
 			tron.Ping(td)
-			time.Sleep(time.Millisecond * time.Duration(td.Times[i]))
+			fmt.Printf("%d\n", times[i])
+			time.Sleep(time.Millisecond * time.Duration(times[i]))
 		}
+		lock.Unlock()
 	}
 }
 
