@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"sync"
 	"time"
 )
@@ -19,13 +20,18 @@ func MakeTron(name string) *Tron {
 }
 
 func (t *Tron) Ping(from3D *ThreeD) {
-	fmt.Printf("From %s ping called on %s\n", from3D.Name, t.Name)
+	if t.Name == "zero" {
+		fmt.Printf("The SHARED ZERO hit by %s\n", from3D.Name)
+	} else {
+		fmt.Printf("%s is at position %s\n", from3D.Name, t.Name)
+	}
 }
 
 type ThreeD struct {
 	Zero  *Tron
 	Name  string
 	Trons []*Tron
+	Times []int
 }
 
 func MakeThreeD(zero *Tron, name string) *ThreeD {
@@ -43,15 +49,23 @@ func MakeThreeD(zero *Tron, name string) *ThreeD {
 	return &td
 }
 
+func (td *ThreeD) PickTimes() {
+	td.Times = []int{}
+	td.Times = append(td.Times, rand.Intn(500))
+	td.Times = append(td.Times, rand.Intn(500))
+	td.Times = append(td.Times, rand.Intn(500))
+}
+
 func (td *ThreeD) Start() {
 	for {
 		lock.Lock()
 		td.Zero.Ping(td)
 		lock.Unlock()
-		for _, tron := range td.Trons {
+		td.PickTimes()
+		for i, tron := range td.Trons {
 			tron.Ping(td)
+			time.Sleep(time.Millisecond * time.Duration(td.Times[i]))
 		}
-		time.Sleep(time.Second * 1)
 	}
 }
 

@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 func main() {
 	fmt.Println("Robert Sepehr's Virtual Track Computer")
@@ -30,6 +34,7 @@ It's a process of renewal.
 A blackhole is a compost pile.
 	`
 	fmt.Println(talk)
+	rand.Seed(time.Now().UnixNano())
 	Start()
 
 }
