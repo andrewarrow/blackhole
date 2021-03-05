@@ -77,10 +77,10 @@ Now picture our 3D world in a circle:
       +         \       /         +
        \         \     /         /  
         \         \   /         /  
-         \         \ /         /  
+ (       \         \ /         /       )  
           \         +         /
            \       / \       /
-   (        \     /   \     /       )  
+            \     /   \     /         
              \   /     \   /      
               \ /       \ /
                +         +
@@ -88,5 +88,7 @@ Now picture our 3D world in a circle:
                     ~
 
 
-
+Start at the top ~ and draw a circle through the + and + and then )
+and then the bottom ~ and then left side ( and back up through another
++ and + and then back to starting ~.
 ```
