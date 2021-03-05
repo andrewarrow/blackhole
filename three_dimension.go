@@ -56,9 +56,9 @@ func MakeThreeD(zero *Tron, name string) *ThreeD {
 
 func MakeTimes(verbose bool) []int {
 	T := []int{}
-	T = append(T, rand.Intn(2000))
-	T = append(T, rand.Intn(2000))
-	T = append(T, rand.Intn(2000))
+	T = append(T, rand.Intn(500)+500)
+	T = append(T, rand.Intn(500)+500)
+	T = append(T, rand.Intn(500)+500)
 	sum := 0
 	for _, t := range T {
 		sum += t

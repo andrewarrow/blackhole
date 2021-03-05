@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"time"
 )
 
@@ -16,12 +17,12 @@ func StartWithDrawing() {
 }
 func DrawWithParams(ab string, num int) {
 	draw := `
-           +                 %s
+           %s                 %s
           / \               / \
          /   \             /   \
         /     \           /     \
        /       \         /       \
-      +         \       /         %s
+      %s         \       /         %s
        \         \     /         /  
         \         \   /         /  
          \         \ /         /  
@@ -30,17 +31,29 @@ func DrawWithParams(ab string, num int) {
             \     /   \     /
              \   /     \   /
               \ /       \ /
-               +         %s
+               %s         %s
 `
 
-	if num == 0 {
-		fmt.Printf("\n\n\n%s\n\n\n", fmt.Sprintf(draw, "+", "+", ab, "+"))
-	} else if num == 1 {
-		fmt.Printf("\n\n\n%s\n\n\n", fmt.Sprintf(draw, "+", "1", ab, "+"))
-	} else if num == 2 {
-		fmt.Printf("\n\n\n%s\n\n\n", fmt.Sprintf(draw, "+", "+", ab, "1"))
-	} else if num == 3 {
-		fmt.Printf("\n\n\n%s\n\n\n", fmt.Sprintf(draw, "1", "+", ab, "+"))
+	if ab == "a" {
+		if num == 0 {
+			fmt.Printf("\n\n\n%s\n\n\n", fmt.Sprintf(draw, "+", "+", "+", "+", "a", "+", "+"))
+		} else if num == 1 || (num == 2 && rand.Intn(20) > 5) {
+			fmt.Printf("\n\n\n%s\n\n\n", fmt.Sprintf(draw, "+", "1", "+", "+", "a", "+", "+"))
+		} else if num == 2 || (num == 1 && rand.Intn(20) <= 5) {
+			fmt.Printf("\n\n\n%s\n\n\n", fmt.Sprintf(draw, "+", "+", "+", "2", "a", "+", "+"))
+		} else if num >= 3 {
+			fmt.Printf("\n\n\n%s\n\n\n", fmt.Sprintf(draw, "+", "+", "+", "+", "a", "+", "3"))
+		}
+	} else {
+		if num == 0 {
+			fmt.Printf("\n\n\n%s\n\n\n", fmt.Sprintf(draw, "+", "+", "+", "+", "b", "+", "+"))
+		} else if num == 1 {
+			fmt.Printf("\n\n\n%s\n\n\n", fmt.Sprintf(draw, "1", "+", "+", "+", "b", "+", "+"))
+		} else if num == 2 {
+			fmt.Printf("\n\n\n%s\n\n\n", fmt.Sprintf(draw, "+", "+", "2", "+", "b", "+", "+"))
+		} else if num >= 3 {
+			fmt.Printf("\n\n\n%s\n\n\n", fmt.Sprintf(draw, "+", "+", "+", "+", "b", "3", "+"))
+		}
 	}
 }
 func (t *Tron) PingDraw(from3D *ThreeD) []int {
