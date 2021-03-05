@@ -27,3 +27,22 @@ And this all happenes because infinity is bounded. Let me draw it:
              \   /     \   /
               \ /       \ /
                +         +
+
+
+This is our 3D world of space and time. Around around we go. Picture a figure eight.
+
+If you get on a space ship and go far far far far out into "space" you um, get right back
+to where you started.
+
+It's an illusion that space (and time) go on "forever."
+
+You're just stuck in a loop!
+
+for {
+
+
+}
+
+And to explain when this infinite loop finally breaks...
+
+
