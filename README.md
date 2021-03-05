@@ -64,10 +64,29 @@ then down to right side of the bottom positive triangle.
 
 Then hopping over to the negative triangle and repeating this.
 
+Now picture our 3D world in a circle:
+
+```
+                    ~
+                    
+           +                 +
+          / \               / \
+         /   \             /   \
+        /     \           /     \
+       /       \         /       \
+      +         \       /         +
+       \         \     /         /  
+        \         \   /         /  
+         \         \ /         /  
+          \         +         /
+           \       / \       /
+   (        \     /   \     /       )  
+             \   /     \   /      
+              \ /       \ /
+               +         +
+
+                    ~
 
 
 
-
-
-
-
+```
