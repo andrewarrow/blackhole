@@ -130,7 +130,7 @@ and travel up and down the other one.
 All of that movement is not part of our 3D world of space and time
 but it does sit right on top of it!
 
-I the video Robert Sepehr makes this plea:
+In the video Robert Sepehr makes this plea:
 
 ```
 "I'm telling every computer scientist, you don't even have the whole
