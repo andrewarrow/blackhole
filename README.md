@@ -1,6 +1,6 @@
 # blackhole
 
-Inspired by https://www.youtube.com/watch?v=54q2OfUjpdQ video by Robert Sepehr
+Inspired by [54q2OfUjpdQ] (https://www.youtube.com/watch?v=54q2OfUjpdQ) video by Robert Sepehr
 
 "a blackhole is a compost pile."
 
