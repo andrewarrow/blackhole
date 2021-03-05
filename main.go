@@ -30,4 +30,6 @@ It's a process of renewal.
 A blackhole is a compost pile.
 	`
 	fmt.Println(talk)
+	Start()
+
 }
