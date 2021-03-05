@@ -149,4 +149,78 @@ I'm interested in making a "track" for computer processors.
 
 This project is trying to bring his idea to life in this golang repo.
 
+Sample Run:
 
+```
+The SHARED ZERO hit by a
+Delay 81 milliseconds.
+a is at position t1
+Delay 387 milliseconds.
+a is at position t2
+Delay 347 milliseconds.
+a is at position t3
+The SHARED ZERO hit by a
+Delay 81 milliseconds.
+a is at position t1
+Delay 387 milliseconds.
+a is at position t2
+Delay 347 milliseconds.
+a is at position t3
+The SHARED ZERO hit by b
+Delay 81 milliseconds.
+b is at position t1
+Delay 387 milliseconds.
+b is at position t2
+Delay 347 milliseconds.
+b is at position t3
+
+Next cycle will take 748 milliseconds (Random between 0 and 1500).
+
+The SHARED ZERO hit by b
+Delay 381 milliseconds.
+b is at position t1
+Delay 35 milliseconds.
+b is at position t2
+Delay 332 milliseconds.
+b is at position t3
+The SHARED ZERO hit by a
+Delay 381 milliseconds.
+a is at position t1
+Delay 35 milliseconds.
+a is at position t2
+Delay 332 milliseconds.
+a is at position t3
+
+Next cycle will take 1278 milliseconds (Random between 0 and 1500).
+
+The SHARED ZERO hit by a
+Delay 465 milliseconds.
+a is at position t1
+Delay 315 milliseconds.
+a is at position t2
+Delay 498 milliseconds.
+a is at position t3
+The SHARED ZERO hit by b
+Delay 465 milliseconds.
+b is at position t1
+Delay 315 milliseconds.
+b is at position t2
+Delay 498 milliseconds.
+b is at position t3
+
+Next cycle will take 531 milliseconds (Random between 0 and 1500).
+
+The SHARED ZERO hit by b
+Delay 0 milliseconds.
+b is at position t1
+Delay 60 milliseconds.
+b is at position t2
+Delay 471 milliseconds.
+b is at position t3
+The SHARED ZERO hit by a
+Delay 0 milliseconds.
+a is at position t1
+Delay 60 milliseconds.
+a is at position t2
+Delay 471 milliseconds.
+```

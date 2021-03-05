@@ -62,7 +62,7 @@ func MakeTimes() []int {
 	for _, t := range T {
 		sum += t
 	}
-	fmt.Printf("\nNext cycle will take %d milliseconds.\n\n", sum)
+	fmt.Printf("\nNext cycle will take %d milliseconds (Random between 0 and 1500).\n\n", sum)
 	return T
 }
 
