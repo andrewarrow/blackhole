@@ -35,6 +35,6 @@ A blackhole is a compost pile.
 	`
 	fmt.Println(talk)
 	rand.Seed(time.Now().UnixNano())
-	Start()
+	StartWithDrawing()
 
 }

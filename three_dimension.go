@@ -8,8 +8,9 @@ import (
 )
 
 var listOfABS map[string]int = map[string]int{}
-var cacheTimes []int = MakeTimes()
-var lock *sync.Mutex
+var cacheTimes []int = MakeTimes(false)
+var lock sync.Mutex = sync.Mutex{}
+var zero *Tron
 
 type Tron struct {
 	Name string
@@ -53,7 +54,7 @@ func MakeThreeD(zero *Tron, name string) *ThreeD {
 	return &td
 }
 
-func MakeTimes() []int {
+func MakeTimes(verbose bool) []int {
 	T := []int{}
 	T = append(T, rand.Intn(500))
 	T = append(T, rand.Intn(500))
@@ -62,7 +63,9 @@ func MakeTimes() []int {
 	for _, t := range T {
 		sum += t
 	}
-	fmt.Printf("\nNext cycle will take %d milliseconds (Random between 0 and 1500).\n\n", sum)
+	if verbose {
+		fmt.Printf("\nNext cycle will take %d milliseconds (Random between 0 and 1500).\n\n", sum)
+	}
 	return T
 }
 
@@ -78,17 +81,19 @@ func (td *ThreeD) Start() {
 			listOfABS[td.Name]++
 		}
 		if listOfABS["a"] >= 4 && listOfABS["b"] >= 4 {
-			cacheTimes = MakeTimes()
+			cacheTimes = MakeTimes(true)
 			listOfABS = map[string]int{}
 		}
 		lock.Unlock()
 	}
 }
 
-func Start() {
-	lock = &sync.Mutex{}
-	zero := &Tron{}
+func init() {
+	zero = &Tron{}
 	zero.Name = "zero"
+}
+
+func Start() {
 	a := MakeThreeD(zero, "a")
 	b := MakeThreeD(zero, "b")
 	go a.Start()
