@@ -1,5 +1,7 @@
 # blackhole
 
+Inspired by https://www.youtube.com/watch?v=54q2OfUjpdQ video by Robert Sepehr
+
 "a blackhole is a compost pile."
 
 "you have free choice, you can pick option a or option b all day, but also is true, that the cycle repeats and all roads lead to rome."
