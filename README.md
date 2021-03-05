@@ -45,4 +45,27 @@ for {
 
 And to explain when this infinite loop finally breaks...
 
+We have to talk about a whole other system, let me draw that too:
+
+
+       *                *
+      / \              / \
+     /   \            /   \
+    /     \          /     \
+   /       \        /       \
+  /         \      /         \
+ *           *    *           *
+       +                -
+
+Picture movement starting at the bottom positive * going up
+then down to right side of the bottom positive triangle.
+
+Then hopping over to the negative triangle and repeating this.
+
+
+
+
+
+
+
 
