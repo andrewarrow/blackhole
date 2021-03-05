@@ -72,8 +72,7 @@ func (td *ThreeD) Start() {
 			tron.Ping(td)
 			listOfABS[td.Name]++
 		}
-		fmt.Println(listOfABS)
-		if listOfABS["a"] == 8 && listOfABS["b"] == 8 {
+		if listOfABS["a"] >= 4 && listOfABS["b"] >= 4 {
 			cacheTimes = MakeTimes()
 			listOfABS = map[string]int{}
 		}
