@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strings"
 	"sync"
 	"time"
 )
@@ -19,12 +18,8 @@ func MakeTron(name string) *Tron {
 	return &t
 }
 
-func (t *Tron) Ping(ab string) {
-	if strings.HasSuffix(ab, "b") {
-		fmt.Printf("                          Ping from %s, i'm %s\n", ab, t.Name)
-	} else {
-		fmt.Printf("Ping from %s, i'm %s\n", ab, t.Name)
-	}
+func (t *Tron) Ping(from3D *ThreeD) {
+	fmt.Printf("From %s ping called on %s\n", from3D.Name, t.Name)
 }
 
 type ThreeD struct {
@@ -51,10 +46,10 @@ func MakeThreeD(zero *Tron, name string) *ThreeD {
 func (td *ThreeD) Start() {
 	for {
 		lock.Lock()
-		td.Zero.Ping(td.Name)
+		td.Zero.Ping(td)
 		lock.Unlock()
-		for i, tron := range td.Trons {
-			tron.Ping(fmt.Sprintf("%d %s", i, td.Name))
+		for _, tron := range td.Trons {
+			tron.Ping(td)
 		}
 		time.Sleep(time.Second * 1)
 	}
