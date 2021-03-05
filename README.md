@@ -77,18 +77,75 @@ Now picture our 3D world in a circle:
       +         \       /         +
        \         \     /         /  
         \         \   /         /  
- (       \         \ /         /       )  
+         \         \ /         /         
           \         +         /
            \       / \       /
-            \     /   \     /         
+       (    \     /   \     /   )         
              \   /     \   /      
               \ /       \ /
                +         +
 
                     ~
 
+```
 
 Start at the top ~ and draw a circle through the + and + and then )
 and then the bottom ~ and then left side ( and back up through another
 + and + and then back to starting ~.
+
+Now place a triangle on top of this circle:
+
 ```
+                    ~
+                   / \ 
+           +      /   \      +
+          / \    /     \    / \
+         /   \  /       \  /   \
+        /     \/         \/     \
+       /      /\         /\      \
+      +      /  \       /  \      +
+       \    /    \     /    \    /  
+        \  /      \   /      \  /  
+         \/        \ /        \/         
+         /\         0         /\
+        /  \       / \       /  \
+       (    \     /   \     /    )     
+             \   /     \   /      
+              \ /       \ /
+               +         +
+
+                    ~
+
+```
+
+And noticed I replaced the center + with a 0 as it's the focus point.
+
+Picture both the positive triangle and the negative triangle on top
+over each other. You travel up and down one triangle, then flip over
+and travel up and down the other one.
+
+All of that movement is not part of our 3D world of space and time
+but it does sit right on top of it!
+
+I the video Robert Sepehr makes this plea:
+
+```
+"I'm telling every computer scientist, you don't even have the whole
+picture yet.
+
+There is another pattern, number patter, encalculating, indespensible to
+these calculations.
+
+Bounded Infinity is like the electron orbit.
+
+With conventional computers I'm not interested in how
+many transitors I can pack and the fast processor I can make...
+
+I'm interested in cycling, how many times I go around.
+
+I'm interested in making a "track" for computer processors.
+```
+
+This project is trying to bring his idea to life in this golang repo.
+
+
