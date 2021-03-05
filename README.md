@@ -226,3 +226,5 @@ Delay 60 milliseconds.
 a is at position t2
 Delay 471 milliseconds.
 ```
+
+[Tweet With Video](https://twitter.com/andrewarrow/status/1367982202454036481)
