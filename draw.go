@@ -6,6 +6,8 @@ import (
 	"time"
 )
 
+var completedRevs int
+
 func StartWithDrawing() {
 	a := MakeThreeD(zero, "a")
 	b := MakeThreeD(zero, "b")
@@ -55,6 +57,8 @@ func DrawWithParams(ab string, num int) {
 			fmt.Printf("\n\n\n%s\n\n\n", fmt.Sprintf(draw, "+", "+", "+", "+", "b", "3", "+"))
 		}
 	}
+
+	fmt.Printf("\ncompletedRevs: %d\n", completedRevs)
 }
 func (t *Tron) PingDraw(from3D *ThreeD) []int {
 	list := []int{}
@@ -91,6 +95,7 @@ func (td *ThreeD) StartDraw() {
 		if listOfABS["a"] >= 4 && listOfABS["b"] >= 4 {
 			cacheTimes = MakeTimes(false)
 			listOfABS = map[string]int{}
+			completedRevs++
 		}
 		lock.Unlock()
 	}
