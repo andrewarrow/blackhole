@@ -37,6 +37,47 @@ func (t *Tron) PingDraw(from3D *ThreeD) []int {
 	if t.Name == "zero" {
 		//fmt.Printf("The SHARED ZERO hit by %s\n", from3D.Name)
 		list = cacheTimes
+		if from3D.Name == "a" {
+			draw := `
+           +                 +
+          / \               / \
+         /   \             /   \
+        /     \           /     \
+       /       \         /       \
+      +         \       /         +
+       \         \     /         /  
+        \         \   /         /  
+         \         \ /         /  
+          \         a         /
+           \       / \       /
+            \     /   \     /
+             \   /     \   /
+              \ /       \ /
+               +         +
+`
+			fmt.Printf("\n\n\n%s\n\n\n", draw)
+			return list
+		} else {
+			draw := `
+           +                 +
+          / \               / \
+         /   \             /   \
+        /     \           /     \
+       /       \         /       \
+      +         \       /         +
+       \         \     /         /  
+        \         \   /         /  
+         \         \ /         /  
+          \         b         /
+           \       / \       /
+            \     /   \     /
+             \   /     \   /
+              \ /       \ /
+               +         +
+`
+			fmt.Printf("\n\n\n%s\n\n\n", draw)
+			return list
+		}
 	} else {
 		//fmt.Printf("%s is at position %s\n", from3D.Name, t.Name)
 	}
@@ -48,10 +89,10 @@ func (td *ThreeD) StartDraw() {
 		lock.Lock()
 		listOfABS[td.Name]++
 		times := td.Zero.PingDraw(td)
-		for i, tron := range td.Trons {
+		for i, _ := range td.Trons {
 			//fmt.Printf("Delay %d milliseconds.\n", times[i])
 			time.Sleep(time.Millisecond * time.Duration(times[i]))
-			tron.PingDraw(td)
+			//tron.PingDraw(td)
 			listOfABS[td.Name]++
 		}
 		if listOfABS["a"] >= 4 && listOfABS["b"] >= 4 {
