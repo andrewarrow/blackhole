@@ -58,6 +58,11 @@ func MakeTimes() []int {
 	T = append(T, rand.Intn(500))
 	T = append(T, rand.Intn(500))
 	T = append(T, rand.Intn(500))
+	sum := 0
+	for _, t := range T {
+		sum += t
+	}
+	fmt.Printf("\nNext cycle will take %d milliseconds.\n\n", sum)
 	return T
 }
 
