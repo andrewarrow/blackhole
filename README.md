@@ -2,7 +2,7 @@
 
 "a blackhole is a compost pile."
 
-"you have free choice, you can pick option a or option b all day, but also is true, that the cycle repeats and all romes lead to rome."
+"you have free choice, you can pick option a or option b all day, but also is true, that the cycle repeats and all roads lead to rome."
 
 For example, you could decide to give up chocolate cake, and for a few days, maybe weeks stick to this new world. But often you end up eating chocolate cake, getting back on track, and reaching rome.
 
