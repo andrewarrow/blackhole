@@ -3,8 +3,11 @@ package main
 import (
 	"fmt"
 	"strings"
+	"sync"
 	"time"
 )
+
+var lock *sync.Mutex
 
 type Tron struct {
 	Name string
@@ -17,11 +20,7 @@ func MakeTron(name string) *Tron {
 }
 
 func (t *Tron) Ping(ab string) {
-	if ab == "a" {
-		fmt.Printf("Ping from %s, i'm %s\n", ab, t.Name)
-	} else if ab == "b" {
-		fmt.Printf("                          Ping from %s, i'm %s\n", ab, t.Name)
-	} else if strings.HasSuffix(ab, "b") {
+	if strings.HasSuffix(ab, "b") {
 		fmt.Printf("                          Ping from %s, i'm %s\n", ab, t.Name)
 	} else {
 		fmt.Printf("Ping from %s, i'm %s\n", ab, t.Name)
@@ -51,7 +50,9 @@ func MakeThreeD(zero *Tron, name string) *ThreeD {
 
 func (td *ThreeD) Start() {
 	for {
+		lock.Lock()
 		td.Zero.Ping(td.Name)
+		lock.Unlock()
 		for i, tron := range td.Trons {
 			tron.Ping(fmt.Sprintf("%d %s", i, td.Name))
 		}
@@ -60,6 +61,7 @@ func (td *ThreeD) Start() {
 }
 
 func Start() {
+	lock = &sync.Mutex{}
 	zero := &Tron{}
 	zero.Name = "zero"
 	a := MakeThreeD(zero, "a")
