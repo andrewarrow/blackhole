@@ -7,8 +7,8 @@ import (
 	"time"
 )
 
-var evenOdd bool
-var cacheTimes []int
+var listOfABS map[string]int = map[string]int{}
+var cacheTimes []int = MakeTimes()
 var lock *sync.Mutex
 
 type Tron struct {
@@ -26,11 +26,6 @@ func (t *Tron) Ping(from3D *ThreeD) []int {
 	if t.Name == "zero" {
 		fmt.Printf("The SHARED ZERO hit by %s\n", from3D.Name)
 		list = cacheTimes
-		if evenOdd == false {
-			cacheTimes = MakeTimes()
-			list = cacheTimes
-		}
-		evenOdd = !evenOdd
 	} else {
 		fmt.Printf("%s is at position %s\n", from3D.Name, t.Name)
 	}
@@ -69,11 +64,18 @@ func MakeTimes() []int {
 func (td *ThreeD) Start() {
 	for {
 		lock.Lock()
+		listOfABS[td.Name]++
 		times := td.Zero.Ping(td)
 		for i, tron := range td.Trons {
-			tron.Ping(td)
-			fmt.Printf("%d\n", times[i])
+			fmt.Printf("Delay %d milliseconds.\n", times[i])
 			time.Sleep(time.Millisecond * time.Duration(times[i]))
+			tron.Ping(td)
+			listOfABS[td.Name]++
+		}
+		fmt.Println(listOfABS)
+		if listOfABS["a"] == 8 && listOfABS["b"] == 8 {
+			cacheTimes = MakeTimes()
+			listOfABS = map[string]int{}
 		}
 		lock.Unlock()
 	}
