@@ -7,8 +7,9 @@ import (
 	"time"
 )
 
-var lock sync.Mutex = sync.Mutex{}
+var lockMF sync.Mutex = sync.Mutex{}
 var fourCrank chan bool = make(chan bool, 1024)
+var uniCrank chan bool = make(chan bool, 1024)
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
@@ -46,12 +47,12 @@ func three1() {
 }
 func maleFemale() {
 	loops := 0
-	for _ = range fourCrank {
+	for _ = range uniCrank {
 		list := []int{3, 6, 9, -3, -6}
 		for _, num := range list {
 			if num == 9 {
-				lock.Lock()
-				lock.Unlock()
+				lockMF.Lock()
+				lockMF.Unlock()
 				continue
 			}
 			if rand.Intn(90000) == 19 {
@@ -59,6 +60,7 @@ func maleFemale() {
 			}
 		}
 		loops++
+		fourCrank <- true
 	}
 }
 func theUni() {
@@ -66,13 +68,13 @@ func theUni() {
 	for {
 		list := []int{9}
 		for _, num := range list {
-			lock.Lock()
+			lockMF.Lock()
 			if rand.Intn(990000) == 19 {
 				fmt.Println("999999999999999999              ", loops, num)
 			}
-			lock.Unlock()
+			lockMF.Unlock()
 		}
 		loops++
-		fourCrank <- true
+		uniCrank <- true
 	}
 }
