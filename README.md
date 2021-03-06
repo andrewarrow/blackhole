@@ -228,3 +228,5 @@ Delay 471 milliseconds.
 ```
 
 [Tweet With Video](https://twitter.com/andrewarrow/status/1367982202454036481)
+
+[Video on Google](https://drive.google.com/file/d/1ivCLfN4CvLoFNLIeSIqb5pga1ucc4nDS/view)
