@@ -5,13 +5,21 @@ import (
 	"sync"
 )
 
-var listOfABS map[string]int = map[string]int{}
+var listOfABS3 map[string]int = map[string]int{}
+var listOfABS4 map[string]int = map[string]int{}
 var cacheTimes []int = MakeTimes(false)
 var lock sync.Mutex = sync.Mutex{}
 var zeroFor3 *Tron
 var zeroFor4 *Tron
 var totalSums int
 var totalCount int
+
+func init() {
+	zeroFor3 = &Tron{}
+	zeroFor3.Name = "zero"
+	zeroFor4 = &Tron{}
+	zeroFor4.Name = "zero"
+}
 
 type Tron struct {
 	Name string

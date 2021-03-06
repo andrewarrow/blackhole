@@ -47,25 +47,20 @@ func MakeTimes(verbose bool) []int {
 func (td *ThreeD) Start() {
 	for {
 		lock.Lock()
-		listOfABS[td.Name]++
+		listOfABS3[td.Name]++
 		times := td.Zero.Ping(td)
 		for i, tron := range td.Trons {
 			fmt.Printf("Delay %d milliseconds.\n", times[i])
 			time.Sleep(time.Millisecond * time.Duration(times[i]))
 			tron.Ping(td)
-			listOfABS[td.Name]++
+			listOfABS3[td.Name]++
 		}
-		if listOfABS["a"] >= 4 && listOfABS["b"] >= 4 {
+		if listOfABS3["a"] >= 4 && listOfABS3["b"] >= 4 {
 			cacheTimes = MakeTimes(true)
-			listOfABS = map[string]int{}
+			listOfABS3 = map[string]int{}
 		}
 		lock.Unlock()
 	}
-}
-
-func init() {
-	zeroFor3 = &Tron{}
-	zeroFor3.Name = "zero"
 }
 
 func Start() {
