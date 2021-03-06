@@ -5,6 +5,8 @@ import (
 	"time"
 )
 
+var plus4D bool
+
 type FourD struct {
 	Name  string
 	Zero  *Tron
@@ -39,6 +41,7 @@ func (fd *FourD) StartDraw() {
 			cacheTimes4 = MakeTimes4(false)
 			listOfABS4 = map[string]int{}
 			completedRevs4++
+			plus4D = !plus4D
 		}
 		lock.Unlock()
 	}

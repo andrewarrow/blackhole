@@ -36,7 +36,10 @@ type TemplateThing struct {
 }
 
 func (tt TemplateThing) Plus() template.HTML {
-	return template.HTML("+")
+	if plus4D {
+		return template.HTML("+")
+	}
+	return template.HTML("-")
 }
 
 type DrawParams struct {
