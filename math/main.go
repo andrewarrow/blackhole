@@ -10,19 +10,32 @@ var fourCrank chan bool = make(chan bool, 1024)
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
-	go three()
+	go three1()
+	go three2()
 	go four()
 	for {
 		time.Sleep(time.Second)
 	}
 }
-func three() {
+func three2() {
 	loops := 0
 	for _ = range fourCrank {
-		list := []int{1, 2, 4, 0, -8, -7, -5, 0, -1, -2, -4, 0, 8, 7, 5, 0}
+		list := []int{1, 2, 4, 0, -4, -2, -1, 0}
 		for _, num := range list {
 			if rand.Intn(990000) == 19 {
-				fmt.Println(loops, num)
+				fmt.Println(loops, "LEFT", num)
+			}
+		}
+		loops++
+	}
+}
+func three1() {
+	loops := 0
+	for _ = range fourCrank {
+		list := []int{8, 7, 5, 0, -5, -7, -8, 0}
+		for _, num := range list {
+			if rand.Intn(990000) == 19 {
+				fmt.Println(loops, "RIGHT", num)
 			}
 		}
 		loops++
