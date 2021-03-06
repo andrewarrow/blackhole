@@ -13,32 +13,23 @@ var uniCrank chan bool = make(chan bool, 1024)
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
-	go three1()
-	go three2()
+	go three()
 	go maleFemale()
 	go theUni()
 	for {
 		time.Sleep(time.Second)
 	}
 }
-func three2() {
+func three() {
 	loops := 0
 	for _ = range fourCrank {
-		list := []int{1, 2, 4, 0, -4, -2, -1, 0}
+		list := []int{1, 2, 4, 0, 8, 7, 5, 0, -1, -2, -4, 0, -8, -7, -5, 0}
 		for _, num := range list {
-			if rand.Intn(990000) == 19 {
+			if num == 8 || num == 7 || num == 5 {
 				fmt.Println(loops, "LEFT", num)
-			}
-		}
-		loops++
-	}
-}
-func three1() {
-	loops := 0
-	for _ = range fourCrank {
-		list := []int{8, 7, 5, 0, -5, -7, -8, 0}
-		for _, num := range list {
-			if rand.Intn(990000) == 19 {
+			} else if num == 0 {
+				fmt.Println(loops, "ZERO", num)
+			} else {
 				fmt.Println(loops, "RIGHT", num)
 			}
 		}
@@ -55,9 +46,7 @@ func maleFemale() {
 				lockMF.Unlock()
 				continue
 			}
-			if rand.Intn(90000) == 19 {
-				fmt.Println("                  ", loops, num)
-			}
+			fmt.Println("                  ", loops, num)
 		}
 		loops++
 		fourCrank <- true
@@ -69,12 +58,11 @@ func theUni() {
 		list := []int{9}
 		for _, num := range list {
 			lockMF.Lock()
-			if rand.Intn(990000) == 19 {
-				fmt.Println("999999999999999999              ", loops, num)
-			}
+			fmt.Println("999999999999999999              ", loops, num)
 			lockMF.Unlock()
 		}
 		loops++
 		uniCrank <- true
+		time.Sleep(time.Second)
 	}
 }
