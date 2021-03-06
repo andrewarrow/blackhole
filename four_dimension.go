@@ -1,6 +1,9 @@
 package main
 
-import "time"
+import (
+	"math/rand"
+	"time"
+)
 
 type FourD struct {
 	Name  string
@@ -33,9 +36,9 @@ func (fd *FourD) StartDraw() {
 			listOfABS4[fd.Name]++
 		}
 		if listOfABS4["c"] >= 3 && listOfABS4["d"] >= 3 {
-			cacheTimes = MakeTimes(false)
+			cacheTimes4 = MakeTimes4(false)
 			listOfABS4 = map[string]int{}
-			//completedRevs++
+			completedRevs4++
 		}
 		lock.Unlock()
 	}
@@ -43,7 +46,7 @@ func (fd *FourD) StartDraw() {
 func (t *Tron) PingDraw4(from4D *FourD) []int {
 	list := []int{}
 	if t.Name == "zero" {
-		list = cacheTimes
+		list = cacheTimes4
 		if from4D.Name == "c" {
 			DrawWithParams(DrawParams{4, "c", 0})
 		} else {
@@ -57,4 +60,16 @@ func (t *Tron) PingDraw4(from4D *FourD) []int {
 		}
 	}
 	return list
+}
+func MakeTimes4(verbose bool) []int {
+	T := []int{}
+	T = append(T, rand.Intn(500)+50)
+	T = append(T, rand.Intn(500)+50)
+	sum := 0
+	for _, t := range T {
+		sum += t
+	}
+	totalSums4 += sum
+	totalCount4++
+	return T
 }

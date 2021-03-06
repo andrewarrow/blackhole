@@ -7,12 +7,18 @@ import (
 
 var listOfABS3 map[string]int = map[string]int{}
 var listOfABS4 map[string]int = map[string]int{}
-var cacheTimes []int = MakeTimes(false)
+var cacheTimes3 []int = MakeTimes3(false)
+var cacheTimes4 []int = MakeTimes4(false)
 var lock sync.Mutex = sync.Mutex{}
 var zeroFor3 *Tron
 var zeroFor4 *Tron
-var totalSums int
-var totalCount int
+var totalSums3 int
+var totalCount3 int
+var totalSums4 int
+var totalCount4 int
+var completedRevs3 int
+var completedRevs4 int
+var lastThing *TemplateThing
 
 func init() {
 	zeroFor3 = &Tron{}
@@ -35,7 +41,7 @@ func (t *Tron) Ping(from3D *ThreeD) []int {
 	list := []int{}
 	if t.Name == "zero" {
 		fmt.Printf("The SHARED ZERO hit by %s\n", from3D.Name)
-		list = cacheTimes
+		list = cacheTimes3
 	} else {
 		fmt.Printf("%s is at position %s\n", from3D.Name, t.Name)
 	}

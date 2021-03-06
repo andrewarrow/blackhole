@@ -8,9 +8,6 @@ import (
 	"time"
 )
 
-var completedRevs int
-var lastThing *TemplateThing
-
 func StartWithDrawing() {
 	a := MakeThreeD(zeroFor3, "a")
 	b := MakeThreeD(zeroFor3, "b")
@@ -146,13 +143,16 @@ func DrawWithParams(dp DrawParams) {
 
 	lastThing = &thing
 	tmpl.Execute(os.Stdout, thing)
-	fmt.Printf("completedRevs: %d, %f", completedRevs, float64(totalSums)/float64(totalCount))
+	fmt.Printf("completedRevs3: %d, %f\n", completedRevs3, float64(totalSums3)/
+		float64(totalCount3))
+	fmt.Printf("completedRevs4: %d, %f", completedRevs4, float64(totalSums4)/
+		float64(totalCount4))
 }
-func (t *Tron) PingDraw(from3D *ThreeD) []int {
+func (t *Tron) PingDraw3(from3D *ThreeD) []int {
 	list := []int{}
 	if t.Name == "zero" {
 		//fmt.Printf("The SHARED ZERO hit by %s\n", from3D.Name)
-		list = cacheTimes
+		list = cacheTimes3
 		if from3D.Name == "a" {
 			DrawWithParams(DrawParams{3, "a", 0})
 		} else {
@@ -173,17 +173,17 @@ func (td *ThreeD) StartDraw() {
 		lock.Lock()
 		listOfABS3[td.Name]++
 		time.Sleep(time.Millisecond * 100)
-		times := td.Zero.PingDraw(td)
+		times := td.Zero.PingDraw3(td)
 		for i, tron := range td.Trons {
 			//fmt.Printf("Delay %d milliseconds.\n", times[i])
 			time.Sleep(time.Millisecond * time.Duration(times[i]))
-			tron.PingDraw(td)
+			tron.PingDraw3(td)
 			listOfABS3[td.Name]++
 		}
 		if listOfABS3["a"] >= 4 && listOfABS3["b"] >= 4 {
-			cacheTimes = MakeTimes(false)
+			cacheTimes3 = MakeTimes3(false)
 			listOfABS3 = map[string]int{}
-			completedRevs++
+			completedRevs3++
 		}
 		lock.Unlock()
 	}

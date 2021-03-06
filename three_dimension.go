@@ -27,7 +27,7 @@ func MakeThreeD(zero *Tron, name string) *ThreeD {
 	return &td
 }
 
-func MakeTimes(verbose bool) []int {
+func MakeTimes3(verbose bool) []int {
 	T := []int{}
 	T = append(T, rand.Intn(500)+50)
 	T = append(T, rand.Intn(500)+50)
@@ -36,8 +36,8 @@ func MakeTimes(verbose bool) []int {
 	for _, t := range T {
 		sum += t
 	}
-	totalSums += sum
-	totalCount++
+	totalSums3 += sum
+	totalCount3++
 	if verbose {
 		fmt.Printf("\nNext cycle will take %d milliseconds (Random between 0 and 1500).\n\n", sum)
 	}
@@ -56,7 +56,7 @@ func (td *ThreeD) Start() {
 			listOfABS3[td.Name]++
 		}
 		if listOfABS3["a"] >= 4 && listOfABS3["b"] >= 4 {
-			cacheTimes = MakeTimes(true)
+			cacheTimes3 = MakeTimes3(true)
 			listOfABS3 = map[string]int{}
 		}
 		lock.Unlock()
