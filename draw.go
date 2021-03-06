@@ -51,18 +51,18 @@ type DrawParams struct {
 func DrawWithParams(dp DrawParams) {
 	draw := `
                     {{ .Top }}
-                   {{ .Plus }} \ 
-           {{ .OneLeft }}      {{ .Plus }}   \      {{ .OneRight }}
-          / \    {{ .Plus }}     \    / \
-         /   \  {{ .Plus }}       \  /   \
-        /     \{{ .Plus }}         \/     \
-       /      {{ .Plus }}\         /\      \
-      {{ .TwoLeft }}      {{ .Plus }}  \       /  \      {{ .TwoRight }}
-       \    {{ .Plus }}    \     /    \    /  
-        \  {{ .Plus }}      \   /      \  /  
-         \{{ .Plus }}        \ /        \/         
-         {{ .Plus }}\         {{ .Zero }}         /\
-        {{ .Plus }}  \       / \       /  \
+                   {{ .Plus }} {{ .Plus }} 
+           {{ .OneLeft }}      {{ .Plus }}   {{ .Plus }}      {{ .OneRight }}
+          / \    {{ .Plus }}     {{ .Plus }}    / \
+         /   \  {{ .Plus }}       {{ .Plus }}  /   \
+        /     \{{ .Plus }}         {{ .Plus }}/     \
+       /      {{ .Plus }}\         /{{ .Plus }}      \
+      {{ .TwoLeft }}      {{ .Plus }}  \       /  {{ .Plus }}      {{ .TwoRight }}
+       \    {{ .Plus }}    \     /    {{ .Plus }}    /  
+        \  {{ .Plus }}      \   /      {{ .Plus }}  /  
+         \{{ .Plus }}        \ /        {{ .Plus }}/         
+         {{ .Plus }}\         {{ .Zero }}          {{ .Plus }}
+        {{ .Plus }}  \       / \       /  {{ .Plus }}
        {{ .CloseLeft }}    \     /   \     /    {{ .CloseRight }}     
              \   /     \   /      
               \ /       \ /
