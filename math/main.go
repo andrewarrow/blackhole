@@ -12,7 +12,8 @@ func main() {
 	rand.Seed(time.Now().UnixNano())
 	go three1()
 	go three2()
-	go four()
+	go maleFemale()
+	go theUni()
 	for {
 		time.Sleep(time.Second)
 	}
@@ -41,13 +42,25 @@ func three1() {
 		loops++
 	}
 }
-func four() {
+func maleFemale() {
 	loops := 0
-	for {
-		list := []int{3, 9, 6, -3, -9, -6}
+	for _ = range fourCrank {
+		list := []int{3, 6, -3, -6}
 		for _, num := range list {
 			if rand.Intn(990000) == 19 {
 				fmt.Println("                  ", loops, num)
+			}
+		}
+		loops++
+	}
+}
+func theUni() {
+	loops := 0
+	for {
+		list := []int{9}
+		for _, num := range list {
+			if rand.Intn(990000) == 19 {
+				fmt.Println("999999999999999999              ", loops, num)
 			}
 		}
 		loops++
