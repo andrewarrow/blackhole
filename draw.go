@@ -11,8 +11,10 @@ import (
 var completedRevs int
 
 func StartWithDrawing() {
-	a := MakeThreeD(zero, "a")
-	b := MakeThreeD(zero, "b")
+	a := MakeThreeD(zeroFor3, "a")
+	b := MakeThreeD(zeroFor3, "b")
+	c := MakeFourD(zeroFor4, "c")
+	go c.StartDraw()
 	go a.StartDraw()
 	go b.StartDraw()
 	for {
@@ -76,42 +78,26 @@ func DrawWithParams(ab string, num int) {
 	if ab == "a" {
 		thing.Zero = "a"
 		if num == 0 {
-			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
-			//"+", "+", "+", "+", "a", "(", ")", "+", "+"))
 		} else if num == 1 || (num == 2 && rand.Intn(20) > 5) {
 			thing.OneLeft = "1"
-			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
-			//"+", "1", "+", "+", "a", "(", ")", "+", "+"))
 		} else if num == 2 || (num == 1 && rand.Intn(20) <= 5) {
 			thing.TwoLeft = "2"
-			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
-			//"+", "+", "+", "2", "a", "(", ")", "+", "+"))
 		} else if num >= 3 {
 			thing.ThreeLeft = "3"
-			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
-			//"+", "+", "+", "+", "a", "(", ")", "+", "3"))
 		}
 	} else {
 		thing.Zero = "b"
 		if num == 0 {
-			//	fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
-			//	"+", "+", "+", "+", "b", "(", ")", "+", "+"))
 		} else if num == 1 || (num == 2 && rand.Intn(20) > 5) {
 			thing.OneRight = "1"
-			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
-			//"1", "+", "+", "+", "b", "(", ")", "+", "+"))
 		} else if num == 2 || (num == 1 && rand.Intn(20) <= 5) {
 			thing.TwoRight = "2"
-			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
-			//"+", "+", "2", "+", "b", "(", ")", "+", "+"))
 		} else if num >= 3 {
 			thing.ThreeRight = "3"
-			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
-			//"+", "+", "+", "+", "b", "(", ")", "3", "+"))
 		}
 	}
 
-	err = tmpl.Execute(os.Stdout, thing)
+	tmpl.Execute(os.Stdout, thing)
 	fmt.Printf("completedRevs: %d, %f", completedRevs, float64(totalSums)/float64(totalCount))
 }
 func (t *Tron) PingDraw(from3D *ThreeD) []int {
