@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"math/rand"
+	"os"
 	"time"
 )
 
@@ -17,56 +19,75 @@ func StartWithDrawing() {
 		time.Sleep(time.Second * 1)
 	}
 }
+
+type TemplateThing struct {
+	Top      string
+	OneLeft  string
+	OneRight string
+}
+
 func DrawWithParams(ab string, num int) {
 	draw := `
-                    %s
+                    {{ .Top }}
                    / \ 
-           %s      /   \      %s
+           {{ .OneLeft }}      /   \      {{ .OneRight }}
           / \    /     \    / \
          /   \  /       \  /   \
         /     \/         \/     \
        /      /\         /\      \
-      %s      /  \       /  \      %s
+      {{ .Top }}      /  \       /  \      {{ .Top }}
        \    /    \     /    \    /  
         \  /      \   /      \  /  
          \/        \ /        \/         
-         /\         %s         /\
+         /\         {{ .Top }}         /\
         /  \       / \       /  \
-       %s    \     /   \     /    %s     
+       {{ .Top }}    \     /   \     /    {{ .Top }}     
              \   /     \   /      
               \ /       \ /
-               %s        %s
+               {{ .Top }}        {{ .Top }}
 
 
 `
 
+	tmpl, err := template.New("test").Parse(draw)
+	if err != nil {
+		panic(err)
+	}
+	thing := TemplateThing{}
+	thing.Top = "~"
+	thing.OneLeft = "1"
+	thing.OneRight = "1"
+	err = tmpl.Execute(os.Stdout, thing)
+	if err != nil {
+		panic(err)
+	}
 	if ab == "a" {
 		if num == 0 {
-			fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
-				"+", "+", "+", "+", "a", "(", ")", "+", "+"))
+			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
+			//"+", "+", "+", "+", "a", "(", ")", "+", "+"))
 		} else if num == 1 || (num == 2 && rand.Intn(20) > 5) {
-			fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
-				"+", "1", "+", "+", "a", "(", ")", "+", "+"))
+			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
+			//"+", "1", "+", "+", "a", "(", ")", "+", "+"))
 		} else if num == 2 || (num == 1 && rand.Intn(20) <= 5) {
-			fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
-				"+", "+", "+", "2", "a", "(", ")", "+", "+"))
+			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
+			//"+", "+", "+", "2", "a", "(", ")", "+", "+"))
 		} else if num >= 3 {
-			fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
-				"+", "+", "+", "+", "a", "(", ")", "+", "3"))
+			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
+			//"+", "+", "+", "+", "a", "(", ")", "+", "3"))
 		}
 	} else {
 		if num == 0 {
-			fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
-				"+", "+", "+", "+", "b", "(", ")", "+", "+"))
+			//	fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
+			//	"+", "+", "+", "+", "b", "(", ")", "+", "+"))
 		} else if num == 1 || (num == 2 && rand.Intn(20) > 5) {
-			fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
-				"1", "+", "+", "+", "b", "(", ")", "+", "+"))
+			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
+			//"1", "+", "+", "+", "b", "(", ")", "+", "+"))
 		} else if num == 2 || (num == 1 && rand.Intn(20) <= 5) {
-			fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
-				"+", "+", "2", "+", "b", "(", ")", "+", "+"))
+			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
+			//"+", "+", "2", "+", "b", "(", ")", "+", "+"))
 		} else if num >= 3 {
-			fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
-				"+", "+", "+", "+", "b", "(", ")", "3", "+"))
+			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
+			//"+", "+", "+", "+", "b", "(", ")", "3", "+"))
 		}
 	}
 
