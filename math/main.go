@@ -3,9 +3,11 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"sync"
 	"time"
 )
 
+var lock sync.Mutex = sync.Mutex{}
 var fourCrank chan bool = make(chan bool, 1024)
 
 func main() {
@@ -45,9 +47,14 @@ func three1() {
 func maleFemale() {
 	loops := 0
 	for _ = range fourCrank {
-		list := []int{3, 6, -3, -6}
+		list := []int{3, 6, 9, -3, -6}
 		for _, num := range list {
-			if rand.Intn(990000) == 19 {
+			if num == 9 {
+				lock.Lock()
+				lock.Unlock()
+				continue
+			}
+			if rand.Intn(90000) == 19 {
 				fmt.Println("                  ", loops, num)
 			}
 		}
@@ -59,9 +66,11 @@ func theUni() {
 	for {
 		list := []int{9}
 		for _, num := range list {
+			lock.Lock()
 			if rand.Intn(990000) == 19 {
 				fmt.Println("999999999999999999              ", loops, num)
 			}
+			lock.Unlock()
 		}
 		loops++
 		fourCrank <- true
