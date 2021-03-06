@@ -21,9 +21,16 @@ func StartWithDrawing() {
 }
 
 type TemplateThing struct {
-	Top      string
-	OneLeft  string
-	OneRight string
+	Top        string
+	OneLeft    string
+	OneRight   string
+	TwoLeft    string
+	TwoRight   string
+	ThreeLeft  string
+	ThreeRight string
+	Zero       string
+	CloseLeft  string
+	CloseRight string
 }
 
 func DrawWithParams(ab string, num int) {
@@ -35,16 +42,16 @@ func DrawWithParams(ab string, num int) {
          /   \  /       \  /   \
         /     \/         \/     \
        /      /\         /\      \
-      {{ .Top }}      /  \       /  \      {{ .Top }}
+      {{ .TwoLeft }}      /  \       /  \      {{ .TwoRight }}
        \    /    \     /    \    /  
         \  /      \   /      \  /  
          \/        \ /        \/         
-         /\         {{ .Top }}         /\
+         /\         {{ .Zero }}         /\
         /  \       / \       /  \
-       {{ .Top }}    \     /   \     /    {{ .Top }}     
+       {{ .CloseLeft }}    \     /   \     /    {{ .CloseRight }}     
              \   /     \   /      
               \ /       \ /
-               {{ .Top }}        {{ .Top }}
+               {{ .ThreeLeft }}        {{ .ThreeRight }}
 
 
 `
@@ -55,42 +62,56 @@ func DrawWithParams(ab string, num int) {
 	}
 	thing := TemplateThing{}
 	thing.Top = "~"
-	thing.OneLeft = "1"
-	thing.OneRight = "1"
-	err = tmpl.Execute(os.Stdout, thing)
+	thing.OneLeft = "."
+	thing.OneRight = "."
+	thing.TwoLeft = "."
+	thing.TwoRight = "."
+	thing.ThreeLeft = "."
+	thing.ThreeRight = "."
+	thing.CloseLeft = "("
+	thing.CloseRight = ")"
 	if err != nil {
 		panic(err)
 	}
 	if ab == "a" {
+		thing.Zero = "a"
 		if num == 0 {
 			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
 			//"+", "+", "+", "+", "a", "(", ")", "+", "+"))
 		} else if num == 1 || (num == 2 && rand.Intn(20) > 5) {
+			thing.OneLeft = "1"
 			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
 			//"+", "1", "+", "+", "a", "(", ")", "+", "+"))
 		} else if num == 2 || (num == 1 && rand.Intn(20) <= 5) {
+			thing.TwoLeft = "2"
 			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
 			//"+", "+", "+", "2", "a", "(", ")", "+", "+"))
 		} else if num >= 3 {
+			thing.ThreeLeft = "3"
 			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
 			//"+", "+", "+", "+", "a", "(", ")", "+", "3"))
 		}
 	} else {
+		thing.Zero = "b"
 		if num == 0 {
 			//	fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
 			//	"+", "+", "+", "+", "b", "(", ")", "+", "+"))
 		} else if num == 1 || (num == 2 && rand.Intn(20) > 5) {
+			thing.OneRight = "1"
 			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
 			//"1", "+", "+", "+", "b", "(", ")", "+", "+"))
 		} else if num == 2 || (num == 1 && rand.Intn(20) <= 5) {
+			thing.TwoRight = "2"
 			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
 			//"+", "+", "2", "+", "b", "(", ")", "+", "+"))
 		} else if num >= 3 {
+			thing.ThreeRight = "3"
 			//fmt.Printf("%s\n", fmt.Sprintf(draw, "~",
 			//"+", "+", "+", "+", "b", "(", ")", "3", "+"))
 		}
 	}
 
+	err = tmpl.Execute(os.Stdout, thing)
 	fmt.Printf("completedRevs: %d, %f", completedRevs, float64(totalSums)/float64(totalCount))
 }
 func (t *Tron) PingDraw(from3D *ThreeD) []int {
