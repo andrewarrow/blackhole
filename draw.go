@@ -33,6 +33,18 @@ type TemplateThing struct {
 	Zero       string
 	CloseLeft  string
 	CloseRight string
+	LeftTri1   string
+	LeftTri2   string
+	LeftTri3   string
+	LeftTri4   string
+	LeftTri5   string
+	LeftTri6   string
+	LeftTri7   string
+	LeftTri8   string
+	LeftTri9   string
+	LeftTri10  string
+	LeftTri11  string
+	LeftTri12  string
 }
 
 type DrawParams struct {
@@ -44,18 +56,18 @@ type DrawParams struct {
 func DrawWithParams(dp DrawParams) {
 	draw := `
                     {{ .Top }}
-                   / \ 
-           {{ .OneLeft }}      /   \      {{ .OneRight }}
-          / \    /     \    / \
-         /   \  /       \  /   \
-        /     \/         \/     \
-       /      /\         /\      \
-      {{ .TwoLeft }}      /  \       /  \      {{ .TwoRight }}
-       \    /    \     /    \    /  
-        \  /      \   /      \  /  
-         \/        \ /        \/         
-         /\         {{ .Zero }}         /\
-        /  \       / \       /  \
+                   {{ .LeftTri1 }} \ 
+           {{ .OneLeft }}      {{ .LeftTri2 }}   \      {{ .OneRight }}
+          / \    {{ .LeftTri3 }}     \    / \
+         /   \  {{ .LeftTri4 }}       \  /   \
+        /     \{{ .LeftTri5 }}         \/     \
+       /      {{ .LeftTri6 }}\         /\      \
+      {{ .TwoLeft }}      {{ .LeftTri7 }}  \       /  \      {{ .TwoRight }}
+       \    {{ .LeftTri8 }}    \     /    \    /  
+        \  {{ .LeftTri9 }}      \   /      \  /  
+         \{{ .LeftTri10 }}        \ /        \/         
+         {{ .LeftTri11 }}\         {{ .Zero }}         /\
+        {{ .LeftTri12 }}  \       / \       /  \
        {{ .CloseLeft }}    \     /   \     /    {{ .CloseRight }}     
              \   /     \   /      
               \ /       \ /
@@ -76,6 +88,18 @@ func DrawWithParams(dp DrawParams) {
 		lastThing.ThreeRight = "."
 		lastThing.CloseLeft = "("
 		lastThing.CloseRight = ")"
+		lastThing.LeftTri1 = "/"
+		lastThing.LeftTri2 = "/"
+		lastThing.LeftTri3 = "/"
+		lastThing.LeftTri4 = "/"
+		lastThing.LeftTri5 = "/"
+		lastThing.LeftTri6 = "/"
+		lastThing.LeftTri7 = "/"
+		lastThing.LeftTri8 = "/"
+		lastThing.LeftTri9 = "/"
+		lastThing.LeftTri10 = "/"
+		lastThing.LeftTri11 = "/"
+		lastThing.LeftTri12 = "/"
 	}
 	thing := TemplateThing{}
 	thing.Top = "~"
@@ -87,6 +111,18 @@ func DrawWithParams(dp DrawParams) {
 	thing.ThreeRight = "."
 	thing.CloseLeft = "("
 	thing.CloseRight = ")"
+	thing.LeftTri1 = "/"
+	thing.LeftTri2 = "/"
+	thing.LeftTri3 = "/"
+	thing.LeftTri4 = "/"
+	thing.LeftTri5 = "/"
+	thing.LeftTri6 = "/"
+	thing.LeftTri7 = "/"
+	thing.LeftTri8 = "/"
+	thing.LeftTri9 = "/"
+	thing.LeftTri10 = "/"
+	thing.LeftTri11 = "/"
+	thing.LeftTri12 = "/"
 	if dp.Dimension == 3 {
 		thing.Top = lastThing.Top
 		thing.CloseLeft = lastThing.CloseLeft
@@ -120,9 +156,33 @@ func DrawWithParams(dp DrawParams) {
 		thing.OneRight = lastThing.OneLeft
 		thing.TwoRight = lastThing.TwoRight
 		thing.ThreeRight = lastThing.ThreeRight
+		thing.LeftTri1 = lastThing.LeftTri1
+		thing.LeftTri2 = lastThing.LeftTri2
+		thing.LeftTri3 = lastThing.LeftTri3
+		thing.LeftTri4 = lastThing.LeftTri4
+		thing.LeftTri5 = lastThing.LeftTri5
+		thing.LeftTri6 = lastThing.LeftTri6
+		thing.LeftTri7 = lastThing.LeftTri7
+		thing.LeftTri8 = lastThing.LeftTri8
+		thing.LeftTri9 = lastThing.LeftTri9
+		thing.LeftTri10 = lastThing.LeftTri10
+		thing.LeftTri11 = lastThing.LeftTri11
+		thing.LeftTri12 = lastThing.LeftTri12
 
 		if dp.Ab == "c" {
 			thing.Top = "c"
+			thing.LeftTri1 = "-"
+			thing.LeftTri2 = "-"
+			thing.LeftTri3 = "-"
+			thing.LeftTri4 = "-"
+			thing.LeftTri5 = "-"
+			thing.LeftTri6 = "-"
+			thing.LeftTri7 = "-"
+			thing.LeftTri8 = "-"
+			thing.LeftTri9 = "-"
+			thing.LeftTri10 = "-"
+			thing.LeftTri11 = "-"
+			thing.LeftTri12 = "-"
 			if dp.Num == 0 {
 			} else if dp.Num == 1 || (dp.Num == 2 && rand.Intn(20) > 5) {
 				thing.CloseLeft = "1"
@@ -142,6 +202,7 @@ func DrawWithParams(dp DrawParams) {
 	}
 
 	lastThing = &thing
+	//fmt.Println(draw)
 	tmpl.Execute(os.Stdout, thing)
 	fmt.Printf("completedRevs3: %d, %f\n", completedRevs3, float64(totalSums3)/
 		float64(totalCount3))
