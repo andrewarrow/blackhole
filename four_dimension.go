@@ -32,7 +32,7 @@ func (fd *FourD) StartDraw() {
 			tron.PingDraw4(fd)
 			listOfABS4[fd.Name]++
 		}
-		if listOfABS4["a"] >= 3 && listOfABS4["b"] >= 3 {
+		if listOfABS4["c"] >= 3 && listOfABS4["d"] >= 3 {
 			cacheTimes = MakeTimes(false)
 			listOfABS4 = map[string]int{}
 			//completedRevs++
@@ -44,16 +44,16 @@ func (t *Tron) PingDraw4(from4D *FourD) []int {
 	list := []int{}
 	if t.Name == "zero" {
 		list = cacheTimes
-		if from4D.Name == "a" {
-			DrawWithParams(DrawParams{"a", 0})
+		if from4D.Name == "c" {
+			DrawWithParams(DrawParams{4, "c", 0})
 		} else {
-			DrawWithParams(DrawParams{"b", 0})
+			DrawWithParams(DrawParams{4, "c", 0})
 		}
 	} else {
-		if from4D.Name == "a" {
-			DrawWithParams(DrawParams{"a", listOfABS4[from4D.Name] + 1})
+		if from4D.Name == "d" {
+			DrawWithParams(DrawParams{4, "d", listOfABS4[from4D.Name] + 1})
 		} else {
-			DrawWithParams(DrawParams{"b", listOfABS4[from4D.Name] + 1})
+			DrawWithParams(DrawParams{4, "d", listOfABS4[from4D.Name] + 1})
 		}
 	}
 	return list
