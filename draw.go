@@ -66,7 +66,7 @@ func DrawWithParams(dp DrawParams) {
        {{ .CloseLeft }}    \     /   \     /    {{ .CloseRight }}     
              \   /     \   /      
               \ /       \ /
-               {{ .ThreeLeft }}        {{ .ThreeRight }}
+               {{ .ThreeLeft }}         {{ .ThreeRight }}
 
 
 `
