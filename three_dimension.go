@@ -11,6 +11,8 @@ var listOfABS map[string]int = map[string]int{}
 var cacheTimes []int = MakeTimes(false)
 var lock sync.Mutex = sync.Mutex{}
 var zero *Tron
+var totalSums int
+var totalCount int
 
 type Tron struct {
 	Name string
@@ -63,6 +65,8 @@ func MakeTimes(verbose bool) []int {
 	for _, t := range T {
 		sum += t
 	}
+	totalSums += sum
+	totalCount++
 	if verbose {
 		fmt.Printf("\nNext cycle will take %d milliseconds (Random between 0 and 1500).\n\n", sum)
 	}
