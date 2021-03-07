@@ -41,8 +41,8 @@ func (fb *FancyByte) Base2Add(target *FancyByte) *FancyByte {
 func (fb *FancyByte) Base3Add(target *FancyByte) *FancyByte {
 	result := FancyByte{}
 
-	// 3
-	// 6
+	// 63
+	// 36
 	// 9
 
 	// 3936936393363

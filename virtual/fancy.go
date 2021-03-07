@@ -43,11 +43,11 @@ func MakeBase3FancyByte(s string) FancyByte {
 	a6 := FancyBit{6}
 	for a := range s {
 		if s[a] == 57 {
-			result.List = append(result.List, a9)
+			result.List = append([]FancyBit{a9}, result.List...)
 		} else if s[a] == 51 {
-			result.List = append(result.List, a3)
+			result.List = append([]FancyBit{a3}, result.List...)
 		} else if s[a] == 54 {
-			result.List = append(result.List, a6)
+			result.List = append([]FancyBit{a6}, result.List...)
 		}
 	}
 
