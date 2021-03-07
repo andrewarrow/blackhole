@@ -29,3 +29,11 @@ func (fb *FancyByte) Base3() {
 		fmt.Println(power, val, item, sum)
 	}
 }
+func (fb *FancyByte) Base9() {
+	sum := 0
+	for power, item := range fb.List {
+		val := int(math.Pow(9, float64(power)))
+		sum += val * int(item.Val)
+		fmt.Println(power, val, item, sum)
+	}
+}
