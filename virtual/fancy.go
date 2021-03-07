@@ -35,6 +35,25 @@ type FancyByte struct {
 	List []FancyBit
 }
 
+func MakeBase3FancyByte(s string) FancyByte {
+	result := FancyByte{}
+
+	a9 := FancyBit{9}
+	a3 := FancyBit{3}
+	a6 := FancyBit{6}
+	for a := range s {
+		if s[a] == 57 {
+			result.List = append(result.List, a9)
+		} else if s[a] == 51 {
+			result.List = append(result.List, a3)
+		} else if s[a] == 54 {
+			result.List = append(result.List, a6)
+		}
+	}
+
+	return result
+}
+
 func (fb *FancyByte) Base2() {
 	sum := 0
 	for power, item := range fb.List {

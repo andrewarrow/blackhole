@@ -16,23 +16,17 @@ func main() {
 	fb.Base2()
 	fmt.Println(fb.Base2Add(&fb))
 
-	a = FancyBit{2}
-	b = FancyBit{0}
-	c = FancyBit{2}
-	d := FancyBit{1}
-	fb = FancyByte{}
-	fb.List = append(fb.List, a)
-	fb.List = append(fb.List, b)
-	fb.List = append(fb.List, c)
-	fb.List = append(fb.List, d)
-
+	fb = MakeBase3FancyByte("3936936393363")
+	fb.Base3()
+	fmt.Println(fb)
+	fb = MakeBase3FancyByte("9366639393936")
 	fb.Base3()
 	fmt.Println(fb)
 
 	a = FancyBit{1}
 	b = FancyBit{0}
 	c = FancyBit{2}
-	d = FancyBit{3}
+	d := FancyBit{3}
 	e := FancyBit{4}
 	f := FancyBit{5}
 	g := FancyBit{6}
