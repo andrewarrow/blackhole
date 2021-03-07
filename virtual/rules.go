@@ -60,23 +60,26 @@ func (fb *FancyByte) Base3Add(target *FancyByte) *FancyByte {
 			carry = true
 			result.List = append([]FancyBit{a9}, result.List...)
 		} else if other == 3 && n.Val == 3 {
-			result.List = append([]FancyBit{a3}, result.List...)
+			result.List = append([]FancyBit{a6}, result.List...)
 		} else if other == 6 && n.Val == 6 {
-			result.List = append([]FancyBit{a6}, result.List...)
+			result.List = append([]FancyBit{a3}, result.List...)
 		} else if other == 6 && n.Val == 3 {
-			result.List = append([]FancyBit{a6}, result.List...)
+			result.List = append([]FancyBit{a9}, result.List...)
 		} else if other == 3 && n.Val == 6 {
-			result.List = append([]FancyBit{a6}, result.List...)
+			result.List = append([]FancyBit{a9}, result.List...)
 		} else if other == 9 && n.Val == 6 {
+			carry = true
 			result.List = append([]FancyBit{a9}, result.List...)
 		} else if other == 6 && n.Val == 9 {
+			carry = true
 			result.List = append([]FancyBit{a9}, result.List...)
 		} else if other == 3 && n.Val == 9 {
+			carry = true
 			result.List = append([]FancyBit{a9}, result.List...)
 		} else if other == 9 && n.Val == 3 {
+			carry = true
 			result.List = append([]FancyBit{a9}, result.List...)
 		}
-		fmt.Println(other, n)
 	}
 	if carry {
 		result.List = append([]FancyBit{a9}, result.List...)
