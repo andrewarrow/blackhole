@@ -15,10 +15,11 @@ var mfSeed = 3
 var usSeed = 1
 
 /*
-
-9, 18, 36, 72, 144, 288, 576
-3,  6, 12, 24,  48,  96, 192
-1,  2,  4,  8,  16,  32,  64
+6561, 13122
+  81,   162, 324, 648, 1296, 2592, 5148
+  9,     18,  36,  72,  144,  288,  576
+  3,      6,  12,  24,   48,   96,  192
+  1,      2,   4,   8,   16,   32,   64
 
 
 try and make 295, 288+6+1
@@ -104,6 +105,10 @@ var level1 []int = []int{1, 2, 4, 8, 16, 32, 64}
 // When we experience pure 9, it's OMG amazing.
 // Even just pure level 3 is OMG amazing compared to level 1.
 // Level 1 is the lowest you can get.
+//
+// 1,2,4=male
+// 5,7,8=female
+//
 
 func main2() {
 	list := TryAndMake(1052, []string{})
