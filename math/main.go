@@ -84,6 +84,26 @@ var level1 []int = []int{1, 2, 4, 8, 16, 32, 64}
 //
 // so, for a very large number we can say where it did NOT come from the 4D
 // and we can say where it did NOT come from the 9D.
+//
+// we see the shadow because this event HAPPENED. It already happened in 9D first,
+// then 4D, so when we are left with N possible 4D paths we know one selection WAS
+// ALREADY made. We just don't know which. And when we observe, one is revealed. But
+// act of observation isn't making the selection. The selection already happened
+// and we have the shadow to prove it.
+//
+// time flow in level           9 ---------->
+//      time flow in level      3 --------->
+//           time flow in level 1 -------->
+//
+// 9 is in the lead, always.
+// In our 1,2,4,8,7,5 world of level 1, every cycle we pass thru 0 means
+// nothing is added from our "bad" dimension. We can experience something direct
+// from level 3 or every so often, not only is our cycle at 0, but level 3's
+// cycle is exactly 50% between 3 and 6. Talk about stars lining up.
+//
+// When we experience pure 9, it's OMG amazing.
+// Even just pure level 3 is OMG amazing compared to level 1.
+// Level 1 is the lowest you can get.
 
 func main2() {
 	list := TryAndMake(1052, []string{})
