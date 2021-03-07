@@ -14,7 +14,72 @@ var uniSeed = 9
 var mfSeed = 3
 var usSeed = 1
 
+/*
+
+9, 18, 36, 72, 144, 288, 576
+3,  6, 12, 24,  48,  96, 192
+1,  2,  4,  8,  16,  32,  64
+
+
+try and make 295, 288+6+1
+try and make 201, 144+36=180+18=198+3
+try and make 201, 144+48=192+9
+
+
+
+*/
+func TryAndMake(target int, list []string) []string {
+	fmt.Println("tam", target, list)
+	brokeAt := 0
+	for i, n := range level9 {
+		if n >= target {
+			brokeAt = i
+			break
+		}
+	}
+	fmt.Println("ba", target, brokeAt)
+	if brokeAt == 0 {
+		nextBreak := 0
+		for i, n := range level3 {
+			if n >= target {
+				nextBreak = i
+				break
+			}
+		}
+		if nextBreak == 0 {
+			finalBreak := 0
+			for i, n := range level1 {
+				if n >= target {
+					finalBreak = i
+					break
+				}
+			}
+			if finalBreak == 0 {
+				return append(list, "1")
+			}
+			val := level1[finalBreak-1]
+			return TryAndMake(target-val, append(list, fmt.Sprintf("%d", val)))
+		}
+		if nextBreak == 0 {
+			return append(list, "3")
+		}
+		val := level3[nextBreak-1]
+		return TryAndMake(target-val, append(list, fmt.Sprintf("%d", val)))
+	}
+	val := level9[brokeAt-1]
+	return TryAndMake(target-val, append(list, fmt.Sprintf("%d", val)))
+}
+
+var level9 []int = []int{9, 18, 36, 72, 144, 288, 576}
+var level3 []int = []int{3, 6, 12, 24, 48, 96, 192}
+var level1 []int = []int{1, 2, 4, 8, 16, 32, 64}
+
 func main() {
+	list := TryAndMake(201, []string{})
+	fmt.Println(list)
+}
+
+func main2() {
 	rand.Seed(time.Now().UnixNano())
 	go three()
 	go maleFemale()
