@@ -58,6 +58,7 @@ func TryAndMake(target int, list []string) []string {
 				return append(list, "1")
 			}
 			val := level1[finalBreak-1]
+			// fyi when no return here, diff path
 			return TryAndMake(target-val, append(list, fmt.Sprintf("%d", val)))
 		}
 		if nextBreak == 0 {
@@ -70,16 +71,26 @@ func TryAndMake(target int, list []string) []string {
 	return TryAndMake(target-val, append(list, fmt.Sprintf("%d", val)))
 }
 
-var level9 []int = []int{9, 18, 36, 72, 144, 288, 576}
+var level9 []int = []int{9, 18, 36, 72, 144, 288, 576, 1152}
 var level3 []int = []int{3, 6, 12, 24, 48, 96, 192}
 var level1 []int = []int{1, 2, 4, 8, 16, 32, 64}
 
-func main() {
-	list := TryAndMake(201, []string{})
+// what assumptions can we make about the level3 and level9?
+// We can see shadow of 4D object but not object itself
+// That shadow from 4D, and the shadow of 9D in 4D, can be computed.
+// So you can limit the possible routes you took in level3 and level9 but
+// you can never know 100% sure. There are always multiple routes the
+// shadow doesn't eliminate false route, only some, many perhaps, but not all.
+//
+// so, for a very large number we can say where it did NOT come from the 4D
+// and we can say where it did NOT come from the 9D.
+
+func main2() {
+	list := TryAndMake(1052, []string{})
 	fmt.Println(list)
 }
 
-func main2() {
+func main() {
 	rand.Seed(time.Now().UnixNano())
 	go three()
 	go maleFemale()
