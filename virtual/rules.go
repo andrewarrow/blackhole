@@ -41,6 +41,10 @@ func (fb *FancyByte) Base2Add(target *FancyByte) *FancyByte {
 func (fb *FancyByte) Base3Add(target *FancyByte) *FancyByte {
 	result := FancyByte{}
 
+	// 3
+	// 6
+	// 9
+
 	// 3936936393363
 	// 9366639393936
 	// =
@@ -48,41 +52,131 @@ func (fb *FancyByte) Base3Add(target *FancyByte) *FancyByte {
 	a9 := FancyBit{9}
 	a3 := FancyBit{3}
 	a6 := FancyBit{6}
-	carry := false
+	carry := ""
 	for i, n := range fb.List {
-		if carry {
-			result.List = append([]FancyBit{a9}, result.List...)
-			carry = false
-			continue
-		}
 		other := target.List[i].Val
-		if other == 9 && n.Val == 9 {
-			carry = true
-			result.List = append([]FancyBit{a9}, result.List...)
-		} else if other == 3 && n.Val == 3 {
-			result.List = append([]FancyBit{a6}, result.List...)
-		} else if other == 6 && n.Val == 6 {
-			result.List = append([]FancyBit{a3}, result.List...)
-		} else if other == 6 && n.Val == 3 {
-			result.List = append([]FancyBit{a9}, result.List...)
-		} else if other == 3 && n.Val == 6 {
-			result.List = append([]FancyBit{a9}, result.List...)
-		} else if other == 9 && n.Val == 6 {
-			carry = true
-			result.List = append([]FancyBit{a9}, result.List...)
-		} else if other == 6 && n.Val == 9 {
-			carry = true
-			result.List = append([]FancyBit{a9}, result.List...)
-		} else if other == 3 && n.Val == 9 {
-			carry = true
-			result.List = append([]FancyBit{a9}, result.List...)
-		} else if other == 9 && n.Val == 3 {
-			carry = true
-			result.List = append([]FancyBit{a9}, result.List...)
+		if carry == "" {
+			if other == 9 && n.Val == 9 {
+				carry = "9"
+				result.List = append([]FancyBit{a9}, result.List...)
+			} else if other == 3 && n.Val == 3 {
+				result.List = append([]FancyBit{a6}, result.List...)
+			} else if other == 6 && n.Val == 6 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "3"
+			} else if other == 6 && n.Val == 3 {
+				result.List = append([]FancyBit{a9}, result.List...)
+			} else if other == 3 && n.Val == 6 {
+				result.List = append([]FancyBit{a9}, result.List...)
+			} else if other == 9 && n.Val == 6 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "6"
+			} else if other == 6 && n.Val == 9 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "6"
+			} else if other == 3 && n.Val == 9 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "3"
+			} else if other == 9 && n.Val == 3 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "3"
+			}
+		} else if carry == "3" {
+			if other == 9 && n.Val == 9 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "3"
+			} else if other == 3 && n.Val == 3 {
+				result.List = append([]FancyBit{a9}, result.List...)
+			} else if other == 6 && n.Val == 6 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "6"
+			} else if other == 6 && n.Val == 3 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "3"
+			} else if other == 3 && n.Val == 6 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "3"
+			} else if other == 9 && n.Val == 6 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "9"
+			} else if other == 6 && n.Val == 9 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "9"
+			} else if other == 3 && n.Val == 9 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "6"
+			} else if other == 9 && n.Val == 3 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "6"
+			}
+		} else if carry == "6" {
+			if other == 9 && n.Val == 9 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "6"
+			} else if other == 3 && n.Val == 3 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "3"
+			} else if other == 6 && n.Val == 6 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "9"
+			} else if other == 6 && n.Val == 3 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "6"
+			} else if other == 3 && n.Val == 6 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "6"
+			} else if other == 9 && n.Val == 6 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "3"
+			} else if other == 6 && n.Val == 9 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "3"
+			} else if other == 3 && n.Val == 9 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "9"
+			} else if other == 9 && n.Val == 3 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "9"
+			}
+		} else if carry == "9" {
+			if other == 9 && n.Val == 9 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "9"
+			} else if other == 3 && n.Val == 3 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "6"
+			} else if other == 6 && n.Val == 6 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "3"
+			} else if other == 6 && n.Val == 3 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "9"
+			} else if other == 3 && n.Val == 6 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "9"
+			} else if other == 9 && n.Val == 6 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "6"
+			} else if other == 6 && n.Val == 9 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "6"
+			} else if other == 3 && n.Val == 9 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "3"
+			} else if other == 9 && n.Val == 3 {
+				result.List = append([]FancyBit{a9}, result.List...)
+				carry = "3"
+			}
 		}
 	}
-	if carry {
-		result.List = append([]FancyBit{a9}, result.List...)
+	if carry != "" {
+		if carry == "9" {
+			result.List = append([]FancyBit{a9}, result.List...)
+		} else if carry == "3" {
+			result.List = append([]FancyBit{a3}, result.List...)
+		} else if carry == "6" {
+			result.List = append([]FancyBit{a6}, result.List...)
+		}
 	}
 
 	return &result
