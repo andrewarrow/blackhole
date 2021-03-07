@@ -14,7 +14,7 @@ func main() {
 	fb.List = append(fb.List, c)
 
 	fb.Base2()
-	fmt.Println(fb)
+	fmt.Println(fb.Base2Add(&fb))
 
 	a = FancyBit{2}
 	b = FancyBit{0}
