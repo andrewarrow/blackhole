@@ -15,15 +15,19 @@ func main() {
 
 	fb.Base2()
 	//fmt.Println(fb.Base2Add(&fb))
-	fb = MakeBase3FancyByte("3399")
+	fb = MakeBase3FancyByte("3339")
 	fb.Base3()
 
+	// 12
+	// 9+(3)
+	// 9+3
+	//
 	//fb1 := MakeBase3FancyByte("3936936393363")
 	fb1 := MakeBase3FancyByte("369")
 	fb1.Base3()
 	fmt.Println(fb1)
 	//fb2 := MakeBase3FancyByte("9366639393936")
-	fb2 := MakeBase3FancyByte("633")
+	fb2 := MakeBase3FancyByte("639")
 	fb2.Base3()
 	fmt.Println(fb2)
 	sum := fb1.Base3Add(&fb2)
