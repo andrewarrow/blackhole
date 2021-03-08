@@ -29,13 +29,13 @@ func three() {
 	loops := 0
 	for sign := range fourChan {
 		loops++
-		if usSeed == 128 {
+		if usSeed == 1280000000000000 {
 			usSeed = 1
 		}
 		if sign {
-			fmt.Println(loops, usSeed)
+			fmt.Println(usSeed, loops)
 		} else {
-			fmt.Println(loops, "-", usSeed)
+			fmt.Println("-", usSeed, loops)
 		}
 		usSeed = usSeed * 2
 		// 1,2,4,8,16,32,64
@@ -44,14 +44,14 @@ func three() {
 func maleFemale() {
 	loops := 0
 	for sign := range uniCrank {
-		if mfSeed == 48 {
+		if mfSeed == 480000000000 {
 			mfSeed = 3
 		}
 		loops++
 		if sign {
-			fmt.Println("                     ", loops, mfSeed)
+			fmt.Println("                     ", mfSeed, loops)
 		} else {
-			fmt.Println("                    -", loops, mfSeed)
+			fmt.Println("                    -", mfSeed, loops)
 		}
 		mfSeed = mfSeed * 2
 		fourChan <- sign
@@ -62,7 +62,7 @@ func theUni() {
 	for {
 		list := []int{1, -1}
 		for _, num := range list {
-			fmt.Println("                                 ", int64(num)*uniSeed, loops, num)
+			fmt.Println("                                 ", int64(num)*uniSeed, loops)
 			uniCrank <- num > 0
 		}
 		loops++
