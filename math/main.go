@@ -3,9 +3,12 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"sync"
 	"time"
 )
 
+var sharedZero sync.Mutex = sync.Mutex{}
+var lock sync.Mutex = sync.Mutex{}
 var maleChan chan bool = make(chan bool, 1024)
 var femaleChan chan bool = make(chan bool, 1024)
 
@@ -131,13 +134,15 @@ func threeMale() {
 		list := []int{1, 2, 4, 0}
 		for _, num := range list {
 			if num == 0 {
+				sharedZero.Lock()
+				sharedZero.Unlock()
 				fmt.Println(usSeed, loops, "ZERO", num)
+				usSeed = usSeed * 2
 			} else {
 				fmt.Println(usSeed, loops, "RIGHT", num, sign)
 			}
 		}
 		loops++
-		usSeed = usSeed * 2
 	}
 }
 func threeFemale() {
@@ -146,13 +151,14 @@ func threeFemale() {
 		list := []int{8, 7, 5, 0}
 		for _, num := range list {
 			if num == 0 {
+				sharedZero.Lock()
+				sharedZero.Unlock()
 				fmt.Println(usSeed, loops, "ZERO", num)
 			} else {
 				fmt.Println(usSeed, loops, "LEFT", num, sign)
 			}
 		}
 		loops++
-		usSeed = usSeed * 2
 	}
 }
 func maleFemale() {
@@ -160,12 +166,14 @@ func maleFemale() {
 	for sign := range uniCrank {
 		list := []int{3, 6}
 		for _, num := range list {
-			fmt.Println("                  ", mfSeed, loops, num)
+			fmt.Println("                  ", mfSeed, loops, num, sign)
 			if num == 3 {
 				maleChan <- sign
 			} else if num == 6 {
 				femaleChan <- sign
 			}
+			lock.Lock()
+			lock.Unlock()
 		}
 		loops++
 		mfSeed = mfSeed * 2
