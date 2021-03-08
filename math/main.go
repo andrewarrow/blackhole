@@ -9,8 +9,7 @@ import (
 
 var sharedZero sync.Mutex = sync.Mutex{}
 var lock sync.Mutex = sync.Mutex{}
-var maleChan chan bool = make(chan bool, 1024)
-var femaleChan chan bool = make(chan bool, 1024)
+var fourChan chan bool = make(chan bool, 1024)
 
 var uniCrank chan bool = make(chan bool, 1024)
 var uniSeed = 9
@@ -120,76 +119,48 @@ func main2() {
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
-	go threeMale()
-	go threeFemale()
+	go three()
 	go maleFemale()
 	go theUni()
 	for {
 		time.Sleep(time.Second)
 	}
 }
-func threeMale() {
+func three() {
 	loops := 0
-	for sign := range maleChan {
-		list := []int{1, 2, 4, 0}
-		for _, num := range list {
-			if num == 0 {
-				sharedZero.Lock()
-				sharedZero.Unlock()
-				fmt.Println(usSeed, loops, "ZERO", num)
-				usSeed = usSeed * 2
-			} else {
-				fmt.Println(usSeed, loops, "RIGHT", num, sign)
-			}
-		}
+	for sign := range fourChan {
 		loops++
-	}
-}
-func threeFemale() {
-	loops := 0
-	for sign := range femaleChan {
-		list := []int{8, 7, 5, 0}
-		for _, num := range list {
-			if num == 0 {
-				sharedZero.Lock()
-				sharedZero.Unlock()
-				fmt.Println(usSeed, loops, "ZERO", num)
-			} else {
-				fmt.Println(usSeed, loops, "LEFT", num, sign)
-			}
+		if sign {
+			fmt.Println(usSeed)
+		} else {
+			fmt.Println("-", usSeed)
 		}
-		loops++
+		usSeed = usSeed * 2
 	}
 }
 func maleFemale() {
 	loops := 0
 	for sign := range uniCrank {
-		list := []int{3, 6}
-		for _, num := range list {
-			fmt.Println("                  ", mfSeed, loops, num, sign)
-			if num == 3 {
-				maleChan <- sign
-			} else if num == 6 {
-				femaleChan <- sign
-			}
-			lock.Lock()
-			lock.Unlock()
-		}
 		loops++
+		if sign {
+			fmt.Println("                     ", mfSeed)
+		} else {
+			fmt.Println("                    -", mfSeed)
+		}
 		mfSeed = mfSeed * 2
+		fourChan <- sign
 	}
 }
 func theUni() {
 	loops := 0
 	for {
-		list := []int{9}
+		list := []int{1, -1}
 		for _, num := range list {
-			fmt.Println("                                 ", uniSeed, loops, num)
+			fmt.Println("                                 ", num*uniSeed, loops, num)
+			uniCrank <- num > 0
 		}
 		loops++
 		uniSeed = uniSeed * 2
-		uniCrank <- true
-		uniCrank <- false
 		time.Sleep(time.Second)
 	}
 }
