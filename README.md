@@ -48,7 +48,7 @@ As 12 was on it's way to 24 it had to pass though 21.
 
 And you "caused" 63. When 36 doubles in the outer field to 72 that will
 cause the next number in the middle, and then next number in our inner field too.
-(The inner field numbers start at 2 and double: 2,4,6,8)
+(The inner field numbers start at 1 and double: 1,2,4,6,8)
 
 So you have many paths (i.e. many worlds) BUT you are fated to get
 back in sync with other worlds. There are not an infinite number of
