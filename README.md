@@ -23,8 +23,8 @@
 ```
 
 Take any "normal number" and that means not multiple of 3. Numbers like 1,2,4,5,7,8.
-Take any normal number and multiple by 3 to see where you came from.
-Take any normal number and numtiple by 9 to see where you are going.
+Take any normal number and multiply by 3 to see where you came from.
+Take any normal number and multiply by 9 to see where you are going.
 
 For example, 7 * 3 = 21, 7 * 9 = 63. You are between 22 and 62 in the outer field.
 (The outer field is the Right most numbers starting at 9 and doubling: 9, 18, 36)
@@ -57,7 +57,7 @@ similiar worlds but often not even noticing you are back in story line A vs B vc
 
 Lots of story line changes are attempted but sometimes, you can't get there from here.
 But try again 48 hours later, and then that story line change will work just fine.
-There is nothing magically about that 48 hour time period, it could be lots of different
+There is nothing magical about that 48 hour time period, it could be lots of different
 intervals. 48 is example, idea would be to measure for when story line jumps are
 the easiest and get some device that could tell a human when "realistic" options are coming up.
 
