@@ -1,5 +1,90 @@
 # blackhole
 
+```
+                                   9 
+                                  -9 
+                      3 
+                    - 6 
+1 
+- 2 
+                                  18 
+                                  -18 
+                      12 
+                    - 24 
+4 
+- 8 
+                                  36 
+                                  -36 
+                      48 
+                    - 96 
+
+16
+- 32
+```
+
+Take any "normal number" and that means not multiple of 3. Numbers like 1,2,4,5,7,8.
+Take any normal number and multiple by 3 to see where you came from.
+Take any normal number and numtiple by 9 to see where you are going.
+
+For example, 7 * 3 = 21, 7 * 9 = 63. You are between 22 and 62 in the outer field.
+(The outer field is the Right most numbers starting at 9 and doubling: 9, 18, 36)
+
+7 might have come from 6 + 1
+or 1 + 6
+or it could have been 8 - 1
+or -1 + 8
+or it could have been 4 + 3
+or 3 + 4 
+or 2 + 5
+or 5 + 2
+or 9 - 2
+or -2 + 9
+or 7 + 0
+or 0 + 7
+
+But 21 "caused" you. As 12 was doubling to 24 in the middle field...
+(The middle field numbers start at 3 and double: 3, 6, 12, 24)
+As 12 was on it's way to 24 it had to pass though 21.
+
+And you "caused" 63. When 36 doubles in the outer field to 72 that will
+cause the next number in the middle, and then next number in our inner field too.
+(The inner field numbers start at 2 and double: 2,4,6,8)
+
+So you have many paths (i.e. many worlds) BUT you are fated to get
+back in sync with other worlds. There are not an infinite number of
+other worlds but rather just a few. And you keep hopping on and off each
+similiar worlds but often not even noticing you are back in story line A vs B vc C.
+
+Lots of story line changes are attempted but sometimes, you can't get there from here.
+But try again 48 hours later, and then that story line change will work just fine.
+There is nothing magically about that 48 hour time period, it could be lots of different
+intervals. 48 is example, idea would be to measure for when story line jumps are
+the easiest and get some device that could tell a human when "realistic" options are coming up.
+
+For example, you are looking at your calendar and siri has already placed a note on a specific date and time:
+
+trying to quit eating chocolate cake this monday at 2pm.
+
+because if we can detect when other dimension story lines collapse,
+we can get accurate count of how many viable story lines are still forming.
+
+And then we can evaluate each viable story line for the one most
+compatible with you really never eating chocolate cake again.
+
+If there are 17 possible story lines and only two of them stand a good chance
+for your goal, you need to first get on one of those two lines and THEN
+try and stick to your goals.
+
+But the frustrating part for most humans is you have no idea when these story line
+changing opportunities exist. You see 24/7 time on earth as the same.
+But there are windows of opportunity when your efforts at change will be
+rewarded. And there are windows when you'd be better of just resting and waiting
+for next window.
+
+
+
+
+
 Inspired by [54q2OfUjpdQ](https://www.youtube.com/watch?v=54q2OfUjpdQ) video by Robert Sepehr
 
 "a blackhole is a compost pile."
