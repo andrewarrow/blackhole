@@ -81,6 +81,15 @@ But there are windows of opportunity when your efforts at change will be
 rewarded. And there are windows when you'd be better of just resting and waiting
 for next window.
 
+Possible path for 18
+```
+ 
+                                   18     1+17,2+16,3+15,4+14,5+13,6+12,7+11
+                                  -18     8+10,9+9,10+8,11+7,12+6,13+5,14+4,
+                                          15+3,16+2,17+1,6+6+6,3+6+6+3,6+6+3+3,
+                                          3+9+3+3,9+3+3+3,3+3+3+9          
+                                          24-6,23-6+1
+```
 
 
 
