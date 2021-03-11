@@ -1,5 +1,38 @@
 # blackhole
 
+Certain things are going to take days, certain things are going to take years.
+The rest is just "rotation" which is what we call "random chance" mixed with our
+personal free will. Yes we have free will, yes we can influce the small rotation
+value which is slowly changing all the time anyways.
+
+But with whatever rotation value you select, you come to the next level of a
+single solar day.
+
+And during that single solar day it exists during a single solar year.
+
+So no it's not possible to just suddenly in the next five minutes do something
+you are fated to do in the future. But in the future you very well might do this thing.
+And it might even be a very easy thing you do. But you do it on your one day of the
+year in which the 2nd or 3rd infinite loops happen to be at zero.
+
+So yes, tomorrow is a new day, and yes you can try all over again and you
+might succeed. But the only free will you have is to make very minor adjustments.
+The real progress comes in waves. One wave and day, and one wave a year.
+
+I know what you're thinking. Is my birthday my special day? Well sorry so far I
+have no way of telling you which day is your special day. I think it's different 
+for everyone and your birthday could be it, but so could any other day.
+
+But good news is you can do one amazing thing a day. Which hour of the day is best?
+Again can't really say. But I can tell you during your solar day there will be
+one hour that's better than all the rest. And it's slowly rotating so 1pm today might
+be 1:03pm tomorrow as it slowly changes the start time of this magic hour.
+
+
+
+
+
+
 ```
                                    9 
                                   -9 

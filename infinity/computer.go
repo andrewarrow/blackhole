@@ -16,13 +16,13 @@ func (c *Computer) Run() {
 	direction := false
 	for {
 		time.Sleep(time.Millisecond * 400)
-		from := "     SUN ---======********* "
+		from := "     SUN ********* "
 		if c.TablesP[0] == 6 {
 			from = "     DAY ---====== "
 		} else if c.TablesP[0] == 2 {
-			from = "ROTATION "
+			from = "ROTATION           "
 		}
-		fmt.Println(from, c.TablesP[i], c.TablesN[i])
+		fmt.Printf("%s %015d %012d\n", from, c.TablesP[i], c.TablesN[i])
 		if direction {
 			i--
 		} else {
