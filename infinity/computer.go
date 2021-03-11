@@ -15,8 +15,14 @@ func (c *Computer) Run() {
 	i := 0
 	direction := false
 	for {
-		time.Sleep(time.Second * 1)
-		fmt.Println(c.TablesP[i], c.TablesN[i])
+		time.Sleep(time.Millisecond * 400)
+		from := "     SUN ---======********* "
+		if c.TablesP[0] == 6 {
+			from = "     DAY ---====== "
+		} else if c.TablesP[0] == 2 {
+			from = "ROTATION "
+		}
+		fmt.Println(from, c.TablesP[i], c.TablesN[i])
 		if direction {
 			i--
 		} else {
