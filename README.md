@@ -87,8 +87,39 @@ Think about a human organ growing. You started as 1 cell, then 2, then 4,
 then 8, towards infinity and then finally back to no more when your liver was
 formed or your heart or when anything was finally done. 
 
+But get back to Quantum Physics, how can there be multiple realities?
+Well, 1+1+2+4+5+7+8=28 but also 27+1.
 
+Meaning at the number 27 you have branch to get back to same timeline
+as person you took path 1+1+2+4+5+7+8.
 
+But at 29 what are you going to do? Well, 29-1 works, so does 30-2 and
+a bunch of other ways to add to 28. But after a while it starts to look like:
+
+19383472749239785 - 19383472749239757 = 28
+
+which works, you can get there from those two numbers but wow, seems like
+a hard path, impossible you might say.
+
+So all possible many worlds are collapsing, but sometimes you can
+Indiana Jones a seven step 1+1+2+4+5+7+8 solution very very quicky,
+or sometimes you can just take the eazy 27+1 two step path. But you
+end up back on same timeline.
+
+There aren't these crazy amount of infinite other worlds. There's just a few.
+And you are slipping in and out of them all the time.
+
+So knowing we are IN a super computer, lets build our computers to be more like
+the big nature computer we are in with the SUN,DAY,and ROTATION all going in loops
+that seem infinite. They can take billions of years!
+
+We need three threads all running the same code but with different bits.
+One thread will use our normal type of base 2 zero and one binary computer thread
+we are all used to.
+The next thread will use qbits and be base 3 three six and zero triany computer thread
+used today only by IBM, Google, and places like dwavesys.
+And the final thread uses 9 qbits and be base 9, a new type of computer thread
+like the sun!
 
 
 
