@@ -2,11 +2,19 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
+	"strings"
 	"time"
 )
 
+var nineP int
+var nineN int
+var ninePs []int = []int{}
+var nineNs []int = []int{}
+
 func main() {
-	fmt.Println("three separate infinities:")
+	rand.Seed(time.Now().UnixNano())
+	fmt.Println("six separate infinities:")
 
 	go ByNine(true)
 	go ByNine(false)
@@ -17,8 +25,25 @@ func main() {
 	go ByOnes(true)
 	go ByOnes(false)
 
+	go Printer()
+
 	for {
 		time.Sleep(time.Second)
+	}
+}
+
+func Printer() {
+	for {
+		time.Sleep(time.Second)
+		buff := []string{}
+		for _, val := range nineNs {
+			buff = append([]string{fmt.Sprintf("%d", val)}, buff...)
+		}
+		for _, val := range ninePs {
+			buff = append(buff, fmt.Sprintf("%d", val))
+		}
+		fmt.Println(strings.Join(buff, " "))
+
 	}
 }
 
@@ -28,9 +53,11 @@ func ByNine(positive bool) {
 		time.Sleep(time.Second)
 		val = val * 2
 		if positive {
-			fmt.Println("nine", " ", val)
+			nineP = val
+			ninePs = append(ninePs, nineP)
 		} else {
-			fmt.Println("nine", "-", val)
+			nineN = val * -1
+			nineNs = append(nineNs, nineN)
 		}
 	}
 }
@@ -40,9 +67,7 @@ func BySixThree(positive bool) {
 		time.Sleep(time.Second)
 		val = val * 2
 		if positive {
-			fmt.Println("sixThree", " ", val)
 		} else {
-			fmt.Println("sixThree", "-", val)
 		}
 
 	}
@@ -53,9 +78,7 @@ func ByOnes(positive bool) {
 		time.Sleep(time.Second)
 		val = val * 2
 		if positive {
-			fmt.Println("ones", " ", val)
 		} else {
-			fmt.Println("ones", "-", val)
 		}
 	}
 }
