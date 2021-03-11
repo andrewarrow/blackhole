@@ -13,15 +13,27 @@ type Computer struct {
 
 func (c *Computer) Run() {
 	i := 0
+	direction := false
 	for {
 		time.Sleep(time.Second * 1)
 		fmt.Println(c.TablesP[i], c.TablesN[i])
-		i++
+		if direction {
+			i--
+		} else {
+			i++
+		}
+		if i == 0 {
+			direction = false
+			continue
+		}
 		if i >= len(c.TablesP) {
-			break
+			i--
+			direction = true
+			continue
 		}
 		if i >= len(c.TablesN) {
-			break
+			i--
+			direction = true
 		}
 	}
 }
