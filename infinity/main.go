@@ -16,7 +16,7 @@ var sixThreeNs []int = []int{}
 var onePs []int = []int{}
 var oneNs []int = []int{}
 
-func main() {
+func main2() {
 	rand.Seed(time.Now().UnixNano())
 	fmt.Println("six separate infinities:")
 
