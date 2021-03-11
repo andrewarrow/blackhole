@@ -28,6 +28,66 @@ Again can't really say. But I can tell you during your solar day there will be
 one hour that's better than all the rest. And it's slowly rotating so 1pm today might
 be 1:03pm tomorrow as it slowly changes the start time of this magic hour.
 
+And once a year oh boy, there is a special hour ON your special day.
+
+Since you can't detect them yet. You can try brute force attack hacking
+technique. Just assume every waking hour tomorrow IS your special hour and
+give it all you got to change the future how YOU want. If you get tired
+take breaks. Maybe start with just 4 hours today and work up to every hour.
+In fact, hmm, maybe brute force is only option but you have to be way
+more patient. How about pick a random hour each day to meditate and every
+once in a while you'll get lucky and pick the right hour! How will you know?
+The meditation will be ez that session. If it's hard every time and you tried
+every hour, keep going in loop. Eventually you be giving your best effort
+on the right hour. That's the key, you never know if all your effort was wasted
+because...
+
+Quantum Physics great debate over many worlds gets explained nicely if we
+assume we are in a super computer.
+
+```
+[~/blackhole/infinity] $ ./infinity 
+six separate infinities:
+ROTATION            000000000000002 -1099511627776
+     SUN *********  000000000000018 -4947802324992
+     DAY ---======  000000000000006 -3298534883328
+     SUN *********  000000000000036 -2473901162496
+     DAY ---======  000000000000012 -1649267441664
+ROTATION            000000000000004 -549755813888
+ROTATION            000000000000008 -274877906944
+     SUN *********  000000000000072 -1236950581248
+     DAY ---======  000000000000024 -824633720832
+     DAY ---======  000000000000048 -412316860416
+ROTATION            000000000000016 -137438953472
+     SUN *********  000000000000144 -618475290624
+ROTATION            000000000000032 -68719476736
+     SUN *********  000000000000288 -309237645312
+     DAY ---======  000000000000096 -206158430208
+     SUN *********  000000000000576 -154618822656
+     DAY ---======  000000000000192 -103079215104
+ROTATION            000000000000064 -34359738368
+ROTATION            000000000000128 -17179869184
+     SUN *********  000000000001152 -77309411328
+     DAY ---======  000000000000384 -51539607552
+```
+
+
+A super computer is 3 threads going forever (infinity).
+The SUN thread starts at 9 and doubles.
+The DAY thread starts at 3 and doubles.
+The ROTATION thread starts at 1 and doubles.
+
+Only these giant numbers are not really limitless and
+the axiom that infinity + 1 = infinity is not right.
+Just like with computers we use, you have to do something when you can
+or no longer SHOULD keep doubling. In biology cells divide over and over
+during mitosis until some end, then they stop doubling and grow slower,
+halfing themselves each time instead of doubling until finally, zero.
+Think about a human organ growing. You started as 1 cell, then 2, then 4,
+then 8, towards infinity and then finally back to no more when your liver was
+formed or your heart or when anything was finally done. 
+
+
 
 
 
