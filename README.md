@@ -118,8 +118,48 @@ One thread will use our normal type of base 2 zero and one binary computer threa
 we are all used to.
 The next thread will use qbits and be base 3 three six and zero triany computer thread
 used today only by IBM, Google, and places like dwavesys.
-And the final thread uses 9 qbits and be base 9, a new type of computer thread
-like the sun!
+And the final thread uses 3 qbits linked together to be base 9, a new type of computer thread that has bits with 9 possible values.
+
+What are bits with 9 possible values best at? Doubling from 9 to 18 then 36 etc over
+and over until some limit, and then going back the other direction back to 9 then 0 then -9 and -18 then -36 etc back and forth over and over for infinity.
+
+What are bits with 3 possible values best at? Doubling from 3 to 6 to 12 etc over and
+over until some limit, and then going back the other direction back to 3 then 0
+then -3 and -6 then -12 etc back and forth over and over for infinity.
+
+And normal bits with just 2 possible values should Double from 1 to 2 to 4 to 8
+to 16 to 32 to 64 over and over until some limit, and then going back the other 
+direction back to 1 then 0 then -1 to -2 to -4 to -8 to -16 to -32 and -64 etc
+back and forth over and over for infinity.
+
+And you run these 3 seperate tracks at the same time. And to do calculations
+you use only the first track if the math is small.
+
+If the math is large, go ahead and do 90% of the work in base 3 and then last 10%
+back in base 2.
+
+And if the math is really really large, try 80% in base 9, the last 10% in base 3,
+and the final % in base 2.
+
+But somehow this unlocks the next level in computing. Don't think of infinity
+as a straight line. Think of it like a track and you want to send two runners down
+the track in opposite directions, never to hit unless they both are at zero at
+same time.
+
+Two Runners in base 2 track.
+Two Runners in base 3 track.
+One Runner in base 9.
+
+The One runner in base nine is calling the shots.
+
+Runners in base 3 track listen to that runner for their next number.
+
+Runners in base 2 track listen to BOTH runners in base 3 track for their next number.
+
+Runners in base 2 track also listen to the ONE RUNNER in base 9 if they can, but
+for the most part, they only get their messages from base 3's runners.
+
+
 
 
 
