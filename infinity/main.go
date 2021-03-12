@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"math/rand"
 	"time"
 )
@@ -47,13 +48,34 @@ func Printer9() {
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
-	go Printer124()
-	go Printer875()
-	go Printer9()
+	//go Printer124()
+	//go Printer875()
+	//go Printer9()
 
-	for {
-		time.Sleep(time.Second * 1)
+	bs, _ := ioutil.ReadFile("pattern.txt")
+	for _, b := range bs {
+		if b == 49 { // 1
+			fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#FFAABB'> </div>")
+		} else if b == 50 { // 2
+			fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#00008B'> </div>")
+		} else if b == 51 { // 3
+			fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#FF7F50'> </div>")
+		} else if b == 52 { // 4
+			fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#FFE4C4'> </div>")
+		} else if b == 53 { // 5
+			fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#00FFFF'> </div>")
+		} else if b == 54 { // 6
+			fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#800080'> </div>")
+		} else if b == 55 { // 7
+			fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#008000'> </div>")
+		} else if b == 56 { // 8
+			fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#EE12DD'> </div>")
+		} else if b == 59 { // 9
+		}
+
 	}
+
+	//	time.Sleep(time.Second * 1)
 	// 124
 	// 124
 	// 124
