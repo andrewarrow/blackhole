@@ -3,20 +3,78 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"strings"
 	"time"
 )
 
-var nineP int
-var nineN int
-var ninePs []int = []int{}
-var nineNs []int = []int{}
-var sixThreePs []int = []int{}
-var sixThreeNs []int = []int{}
-var onePs []int = []int{}
-var oneNs []int = []int{}
+func Printer124() {
+	list := []string{"1", "2", "4"}
+	i := 0
+	for {
+		digit := list[i]
+		fmt.Printf(digit)
+		time.Sleep(time.Millisecond * 100)
+		i++
+		if i == 3 {
+			i = 0
+		}
+	}
+}
+func Printer875() {
+	list := []string{"8", "7", "5"}
+	i := 0
+	for {
+		digit := list[i]
+		fmt.Printf(digit)
+		time.Sleep(time.Millisecond * 100)
+		i++
+		if i == 3 {
+			i = 0
+		}
+	}
+}
 
-func main2() {
+func main() {
+	rand.Seed(time.Now().UnixNano())
+	go Printer124()
+	go Printer875()
+
+	for {
+		time.Sleep(time.Second * 1)
+	}
+	// 124
+	// 124
+	// 124
+	// 1234
+	// 124
+	// 124
+	// 124
+	// three's happen, but rarely
+
+	// 875
+	// 875
+	// 875
+	// 8765
+	// 875
+	// 875
+	// 875
+	// six's happen, but rarely
+
+	// 421
+	// 421
+	// 4231
+	// 421
+	// 421
+
+	// 578
+	// 578
+	// 5678
+	// 578
+	// 578
+
+}
+
+/*
+func main3() {
 	rand.Seed(time.Now().UnixNano())
 	fmt.Println("six separate infinities:")
 
@@ -75,7 +133,7 @@ func Printer() {
 func ByNine(positive bool) {
 	val := 9
 	for {
-		time.Sleep(time.Second)
+		time.Sleep(time.Second * 365)
 		val = val * 2
 		if positive {
 			nineP = val
@@ -89,7 +147,7 @@ func ByNine(positive bool) {
 func BySixThree(positive bool) {
 	val := 3
 	for {
-		time.Sleep(time.Second)
+		time.Sleep(time.Second * 1)
 		val = val * 2
 		if positive {
 			sixThreePs = append(sixThreePs, val)
@@ -102,7 +160,7 @@ func BySixThree(positive bool) {
 func ByOnes(positive bool) {
 	val := 1
 	for {
-		time.Sleep(time.Second)
+		time.Sleep(time.Millisecond * 1)
 		val = val * 2
 		if positive {
 			onePs = append(onePs, val)
@@ -111,3 +169,12 @@ func ByOnes(positive bool) {
 		}
 	}
 }
+var nineP int
+var nineN int
+var ninePs []int = []int{}
+var nineNs []int = []int{}
+var sixThreePs []int = []int{}
+var sixThreeNs []int = []int{}
+var onePs []int = []int{}
+var oneNs []int = []int{}
+*/

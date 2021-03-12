@@ -14,15 +14,25 @@ type Computer struct {
 func (c *Computer) Run() {
 	i := 0
 	direction := false
+	id := "sun"
+	if c.TablesP[0] == 6 {
+		id = "day"
+	} else if c.TablesP[0] == 2 {
+		id = "rotation"
+	}
 	for {
-		time.Sleep(time.Millisecond * 400)
 		from := "     SUN ********* "
-		if c.TablesP[0] == 6 {
+		if id == "sun" {
+			time.Sleep(time.Millisecond * 24 * 365 * 64)
+			fmt.Printf("%s %015d %012d\n", from, c.TablesP[i], c.TablesN[i])
+		} else if id == "day" {
 			from = "     DAY ---====== "
-		} else if c.TablesP[0] == 2 {
+			time.Sleep(time.Millisecond * 24 * 64)
+			fmt.Printf("%s %015d %012d\n", from, c.TablesP[i], c.TablesN[i])
+		} else if id == "rotation" {
 			from = "ROTATION           "
+			time.Sleep(time.Millisecond * 1 * 64)
 		}
-		fmt.Printf("%s %015d %012d\n", from, c.TablesP[i], c.TablesN[i])
 		if direction {
 			i--
 		} else {
@@ -44,7 +54,7 @@ func (c *Computer) Run() {
 	}
 }
 
-func main() {
+func main2() {
 	rand.Seed(time.Now().UnixNano())
 	fmt.Println("six separate infinities:")
 	c1 := MakeLevel1Computer()
