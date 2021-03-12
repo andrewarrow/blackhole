@@ -38,11 +38,18 @@ func Printer875() {
 		}
 	}
 }
+func Printer9() {
+	for {
+		fmt.Printf("9")
+		time.Sleep(time.Second * 1000)
+	}
+}
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
 	go Printer124()
 	go Printer875()
+	go Printer9()
 
 	for {
 		time.Sleep(time.Second * 1)
