@@ -12,6 +12,9 @@ func Printer124() {
 	for {
 		digit := list[i]
 		fmt.Printf(digit)
+		if rand.Intn(100) == 5 && digit == "2" {
+			fmt.Printf("3")
+		}
 		time.Sleep(time.Millisecond * 100)
 		i++
 		if i == 3 {
@@ -25,6 +28,9 @@ func Printer875() {
 	for {
 		digit := list[i]
 		fmt.Printf(digit)
+		if rand.Intn(100) == 5 && digit == "7" {
+			fmt.Printf("6")
+		}
 		time.Sleep(time.Millisecond * 100)
 		i++
 		if i == 3 {
