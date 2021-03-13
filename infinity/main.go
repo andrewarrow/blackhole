@@ -16,78 +16,74 @@ func main() {
 	// 6 or -6,   -3   or    3
 	// 5,7             4,2
 	//                 8,1
-	StartFlow(9, 0)
-	StartFlow(-9, 0)
+
+	for {
+		StartFlow(9)
+		time.Sleep(time.Millisecond * 100)
+	}
 }
 
-func StartFlow(n, level int) {
-
-	fmt.Println(n, level)
-	if n == 8 || n == 1 || n == 5 || n == 7 {
+func EndIt(n int) {
+	if rand.Intn(2) == 0 {
 		fmt.Println("End", n)
-		return
+	} else {
+		fmt.Println("End", -1*n)
 	}
-	if n == -8 || n == -1 || n == -5 || n == -7 {
-		fmt.Println("End", n)
+}
+
+func StartFlow(n int) {
+
+	if n == 8 || n == 1 || n == 5 || n == 7 {
+		EndIt(n)
 		return
 	}
 
 	if n == 9 {
-		StartFlow(6, 1)
-		StartFlow(-6, 1)
-		return
-	}
-	if n == -9 {
-		StartFlow(3, 1)
-		StartFlow(-3, 1)
+		r := rand.Intn(100)
+		if r == 0 {
+			EndIt(n)
+		} else if r < 50 {
+			StartFlow(6)
+		} else {
+			StartFlow(3)
+		}
 		return
 	}
 	if n == 6 {
-		if rand.Intn(2) == 0 {
-			StartFlow(5, 2)
+		r := rand.Intn(100)
+		if r < 10 {
+			EndIt(n)
+		} else if r < 50 {
+			StartFlow(5)
 		} else {
-			StartFlow(7, 2)
+			StartFlow(7)
 		}
 		return
 	}
 	if n == 3 {
-		if rand.Intn(2) == 0 {
-			StartFlow(4, 2)
+		r := rand.Intn(100)
+		if r < 10 {
+			EndIt(n)
+		} else if r < 50 {
+			StartFlow(4)
 		} else {
-			StartFlow(2, 2)
-		}
-		return
-	}
-	if n == -6 {
-		if rand.Intn(2) == 0 {
-			StartFlow(-5, 2)
-		} else {
-			StartFlow(-7, 2)
-		}
-		return
-	}
-	if n == -3 {
-		if rand.Intn(2) == 0 {
-			StartFlow(-4, 2)
-		} else {
-			StartFlow(-2, 2)
+			StartFlow(2)
 		}
 		return
 	}
 	if n == 2 {
-		StartFlow(1, 3)
-		return
+		if rand.Intn(2) == 0 {
+			StartFlow(1)
+		} else {
+			EndIt(n)
+		}
 	}
 	if n == 4 {
-		StartFlow(8, 3)
-		return
-	}
-	if n == -2 {
-		StartFlow(-1, 3)
-		return
-	}
-	if n == -4 {
-		StartFlow(-8, 3)
+		if rand.Intn(2) == 0 {
+			StartFlow(8)
+		} else {
+			EndIt(n)
+		}
 		return
 	}
 
