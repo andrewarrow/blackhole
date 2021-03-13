@@ -10,6 +10,28 @@ import (
 var positive bool
 var positiveSixThree bool
 
+func Colors(b int) {
+	if b == 1 { // 1
+		fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#FFAABB'> </div>")
+	} else if b == 2 { // 2
+		fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#00008B'> </div>")
+	} else if b == 3 { // 3
+		fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#FF7F50'> </div>")
+	} else if b == 4 { // 4
+		fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#FFE4C4'> </div>")
+	} else if b == 5 { // 5
+		fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#00FFFF'> </div>")
+	} else if b == 6 { // 6
+		fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#800080'> </div>")
+	} else if b == 7 { // 7
+		fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#008000'> </div>")
+	} else if b == 8 { // 8
+		fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#EE12DD'> </div>")
+	} else if b == 9 { // 9
+		fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#0092DD'> </div>")
+	}
+
+}
 func main() {
 	rand.Seed(time.Now().UnixNano())
 	// 9 or -9
@@ -19,13 +41,14 @@ func main() {
 
 	for {
 		StartFlow(9)
-		time.Sleep(time.Millisecond * 100)
+		time.Sleep(time.Millisecond * 1)
 	}
 }
 
 func EndIt(n int) {
-	if rand.Intn(2) == 0 {
-		fmt.Println("End", n)
+	if rand.Intn(1) == 0 {
+		//fmt.Println("End", n)
+		Colors(n)
 	} else {
 		fmt.Println("End", -1*n)
 	}
