@@ -2,13 +2,47 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"math/rand"
 	"time"
 )
 
-var positive bool
-var positiveSixThree bool
+func main() {
+	rand.Seed(time.Now().UnixNano())
+	// 9 or -9
+	// 6 or -6,   -3   or    3
+	// 5,7             4,2
+	//                 8,1
+
+	loops := 0
+	outer := 0
+	for {
+		list := []int{5, 7, 4, 2, 8, 1}
+		for _, item := range list {
+			Colors(item)
+		}
+		loops++
+		if loops == 100 {
+			if rand.Intn(2) == 0 {
+				Colors(6)
+			} else {
+				Colors(3)
+			}
+			loops = 0
+			outer++
+		}
+		if outer == 10 {
+			Colors(9)
+			outer = 0
+		}
+		time.Sleep(time.Millisecond * 1)
+	}
+}
+
+// 9 = sun and full trip around 365 days
+// 6 = night
+// 3 = day
+// all others numbers but 0 = little things, 1 very minor, 2 more, 8 the most
+// 0 = chance to line up with others
 
 func Colors(b int) {
 	if b == 1 { // 1
@@ -32,91 +66,6 @@ func Colors(b int) {
 	}
 
 }
-func main() {
-	rand.Seed(time.Now().UnixNano())
-	// 9 or -9
-	// 6 or -6,   -3   or    3
-	// 5,7             4,2
-	//                 8,1
-
-	for {
-		StartFlow(9)
-		time.Sleep(time.Millisecond * 1)
-	}
-}
-
-func EndIt(n int) {
-	if rand.Intn(1) == 0 {
-		//fmt.Println("End", n)
-		Colors(n)
-	} else {
-		fmt.Println("End", -1*n)
-	}
-}
-
-func StartFlow(n int) {
-
-	if n == 8 || n == 1 || n == 5 || n == 7 {
-		EndIt(n)
-		return
-	}
-
-	if n == 9 {
-		r := rand.Intn(100)
-		if r == 0 {
-			EndIt(n)
-		} else if r < 50 {
-			StartFlow(6)
-		} else {
-			StartFlow(3)
-		}
-		return
-	}
-	if n == 6 {
-		r := rand.Intn(100)
-		if r < 10 {
-			EndIt(n)
-		} else if r < 50 {
-			StartFlow(5)
-		} else {
-			StartFlow(7)
-		}
-		return
-	}
-	if n == 3 {
-		r := rand.Intn(100)
-		if r < 10 {
-			EndIt(n)
-		} else if r < 50 {
-			StartFlow(4)
-		} else {
-			StartFlow(2)
-		}
-		return
-	}
-	if n == 2 {
-		if rand.Intn(2) == 0 {
-			StartFlow(1)
-		} else {
-			EndIt(n)
-		}
-	}
-	if n == 4 {
-		if rand.Intn(2) == 0 {
-			StartFlow(8)
-		} else {
-			EndIt(n)
-		}
-		return
-	}
-
-}
-
-// 9 = sun and full trip around 365 days
-// 6 = night
-// 3 = day
-// all others numbers but 0 = little things, 1 very minor, 2 more, 8 the most
-// 0 = chance to line up with others
 
 func Printer124() {
 	list := []string{"1", "2", "4"}
@@ -162,29 +111,6 @@ func main3() {
 	//go Printer124()
 	//go Printer875()
 	//go Printer9()
-
-	bs, _ := ioutil.ReadFile("pattern.txt")
-	for _, b := range bs {
-		if b == 49 { // 1
-			fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#FFAABB'> </div>")
-		} else if b == 50 { // 2
-			fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#00008B'> </div>")
-		} else if b == 51 { // 3
-			fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#FF7F50'> </div>")
-		} else if b == 52 { // 4
-			fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#FFE4C4'> </div>")
-		} else if b == 53 { // 5
-			fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#00FFFF'> </div>")
-		} else if b == 54 { // 6
-			fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#800080'> </div>")
-		} else if b == 55 { // 7
-			fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#008000'> </div>")
-		} else if b == 56 { // 8
-			fmt.Println("<div style='display:inline-block;width:10px;height:10px;background-color:#EE12DD'> </div>")
-		} else if b == 59 { // 9
-		}
-
-	}
 
 	//	time.Sleep(time.Second * 1)
 	// 124
