@@ -7,6 +7,98 @@ import (
 	"time"
 )
 
+var positive bool
+var positiveSixThree bool
+
+func main() {
+	rand.Seed(time.Now().UnixNano())
+	// 9 or -9
+	// 6 or -6,   -3   or    3
+	// 5,7             4,2
+	//                 8,1
+	StartFlow(9, 0)
+	StartFlow(-9, 0)
+}
+
+func StartFlow(n, level int) {
+
+	fmt.Println(n, level)
+	if n == 8 || n == 1 || n == 5 || n == 7 {
+		fmt.Println("End", n)
+		return
+	}
+	if n == -8 || n == -1 || n == -5 || n == -7 {
+		fmt.Println("End", n)
+		return
+	}
+
+	if n == 9 {
+		StartFlow(6, 1)
+		StartFlow(-6, 1)
+		return
+	}
+	if n == -9 {
+		StartFlow(3, 1)
+		StartFlow(-3, 1)
+		return
+	}
+	if n == 6 {
+		if rand.Intn(2) == 0 {
+			StartFlow(5, 2)
+		} else {
+			StartFlow(7, 2)
+		}
+		return
+	}
+	if n == 3 {
+		if rand.Intn(2) == 0 {
+			StartFlow(4, 2)
+		} else {
+			StartFlow(2, 2)
+		}
+		return
+	}
+	if n == -6 {
+		if rand.Intn(2) == 0 {
+			StartFlow(-5, 2)
+		} else {
+			StartFlow(-7, 2)
+		}
+		return
+	}
+	if n == -3 {
+		if rand.Intn(2) == 0 {
+			StartFlow(-4, 2)
+		} else {
+			StartFlow(-2, 2)
+		}
+		return
+	}
+	if n == 2 {
+		StartFlow(1, 3)
+		return
+	}
+	if n == 4 {
+		StartFlow(8, 3)
+		return
+	}
+	if n == -2 {
+		StartFlow(-1, 3)
+		return
+	}
+	if n == -4 {
+		StartFlow(-8, 3)
+		return
+	}
+
+}
+
+// 9 = sun and full trip around 365 days
+// 6 = night
+// 3 = day
+// all others numbers but 0 = little things, 1 very minor, 2 more, 8 the most
+// 0 = chance to line up with others
+
 func Printer124() {
 	list := []string{"1", "2", "4"}
 	i := 0
@@ -46,7 +138,7 @@ func Printer9() {
 	}
 }
 
-func main() {
+func main3() {
 	rand.Seed(time.Now().UnixNano())
 	//go Printer124()
 	//go Printer875()
